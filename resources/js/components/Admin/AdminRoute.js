@@ -4,12 +4,13 @@ import { Redirect, Route } from 'react-router-dom'
 
 const AdminRoute = ({component:Component,...rest}) => {
    const {adminData} = useSelector(state => state.admin)
+   console.log(adminData)
    return (
     <Route {...rest} render = {props => {
         if(adminData){
             return <Component {...props} />
         }else{
-            return <Redirect to={{pathname:"/admin/login"}}/>
+            return <Redirect to={{pathname:"/adminlogin"}}/>
         }
     }} />
 )

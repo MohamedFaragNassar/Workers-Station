@@ -58,8 +58,8 @@ class LoginController extends Controller
     public function clientlogin(Request $request)
     {
         $credentials = $request->only('email', 'password');
+            error_log( print_r($credentials, TRUE) );
 
-        
         if (Auth::guard('client')->attempt($credentials)) {
             $request->session()->regenerate();
             return response()->json(["user"=>Auth::guard('client')->user()], 200);
@@ -67,9 +67,18 @@ class LoginController extends Controller
         return  response()->json(['error' => 'Invalid credentials'],400);
     }
 
+    public function adminLogin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return response()->json(["user"=>Auth::guard('admin')->user()], 200);
+        }
+        return  response()->json(['error' => 'Invalid credentials'],400);
+    }
+
     public function logout(Request $request)
     {
-            error_log(Auth::user());
             Auth::logout();
 
             $request->session()->invalidate();
@@ -78,5 +87,41 @@ class LoginController extends Controller
 
         return response()->json(['success' => TRUE],200);
     }
+/* 
+    public function readyAdmin(Request $request)
+    {
+        $credentials = ["email"=>"mfnemo666@yahoo.com","password"=>"12345678"];
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return response()->json(["user"=>Auth::guard('admin')->user()], 200);
+        }
+        return  response()->json(['error' => 'Invalid credentials'],400);
+    }
+
+    public function readyClient(Request $request)
+    {
+        $credentials = ["mfnemo50500@yahoo.com","12345678"];
+        if (Auth::guard('client')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return response()->json(["user"=>Auth::guard('client')->user()], 200);
+        }
+        return  response()->json(['error' => 'Invalid credentials'],400);
+    }
+
+    public function readySeller(Request $request)
+    {
+        $credentials =["mfnemo50600@yahoo.com","12345678"];
+
+        if (Auth::guard('seller')->attempt($credentials)) {
+            $request->session()->regenerate();
+            return response()->json(["user"=>Auth::guard('seller')->user()], 200);
+        }
+
+        return  response()->json(['error' => 'Invalid credentials'],400);
+    } */
+
 
 }
+
+
+

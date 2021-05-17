@@ -10,6 +10,16 @@ use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class SellersController extends Controller
 {
+
+    public function getAll(Request $request){
+        $sellers = Seller::get();
+        return response()->json(["users" => $sellers]); 
+    }
+    
+    public function delete(Request $request){
+        return Seller::where("id",$request["id"])->delete();
+    }
+
     public function getone(Request $request)
     {
         $orders = Order::leftJoin("ratings","orders.id","=","ratings.order_id")

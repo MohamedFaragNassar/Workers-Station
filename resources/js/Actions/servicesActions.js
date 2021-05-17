@@ -12,7 +12,6 @@ import {GET_LOCATIONS_FAIL,GET_LOCATIONS_REQUEST,GET_LOCATIONS_SUCCESS,
     SEARCH_FAIL,SEARCH_REQUEST,SEARCH_SUCCESS} from '../Constants/servicesConstants'
 
 
-
 const getServices = () => async (dispatch)=>{
     try{
         dispatch({type:GET_SERVICES_REQUEST})

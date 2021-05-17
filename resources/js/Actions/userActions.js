@@ -1,11 +1,11 @@
 import {USER_LOGIN_FAIL,USER_LOGIN_REQUEST,USER_LOGIN_SUCCESS,USER_LOGOUT
         ,USER_REGISTER_FAIL,USER_REGISTER_REQUEST,USER_REGISTER_SUCCESS
-    ,USER_DETAILS_FAIL,USER_DETAILS_REQUEST,USER_DETAILS_SUCCESS,
-    UPDATE_PROFILE_FAIL,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,
-    UPDATE_PERSONAL_IMAGE_FAIL,UPDATE_PERSONAL_IMAGE_REQUEST,UPDATE_PERSONAL_IMAGE_SUCCESS,
-   CHANGE_PASSWORD_FAIL,CHANGE_PASSWORD_REQUEST,CHANGE_PASSWORD_SUCCESS,
-     SEND_ACTIVATION_FAIL,SEND_ACTIVATION_REQUEST,SEND_ACTIVATION_SUCCESS,
-    DELETE_ACCOUNT_FAIL,DELETE_ACCOUNT_REQUEST,DELETE_ACCOUNT_SUCCESS} from '../Constants/userConstants'
+        ,USER_DETAILS_FAIL,USER_DETAILS_REQUEST,USER_DETAILS_SUCCESS,
+        UPDATE_PROFILE_FAIL,UPDATE_PROFILE_REQUEST,UPDATE_PROFILE_SUCCESS,
+        UPDATE_PERSONAL_IMAGE_FAIL,UPDATE_PERSONAL_IMAGE_REQUEST,UPDATE_PERSONAL_IMAGE_SUCCESS,
+        CHANGE_PASSWORD_FAIL,CHANGE_PASSWORD_REQUEST,CHANGE_PASSWORD_SUCCESS,
+        SEND_ACTIVATION_FAIL,SEND_ACTIVATION_REQUEST,SEND_ACTIVATION_SUCCESS,
+        DELETE_ACCOUNT_FAIL,DELETE_ACCOUNT_REQUEST,DELETE_ACCOUNT_SUCCESS} from '../Constants/userConstants'
 
 import Axios from "axios"
 
@@ -17,7 +17,6 @@ const login = (email,password,type) => (dispatch)=>{
                try{
                 const {data} = await Axios.post("/api/sellerlogin",{email,password})
                 dispatch({type:USER_LOGIN_SUCCESS,payload:data.user})
-                localStorage.setItem("userdata",JSON.stringify(data.user))
                 localStorage.setItem("type",type)
                }catch(err){
                     if(err.message == "Request failed with status code 400"){
@@ -25,15 +24,13 @@ const login = (email,password,type) => (dispatch)=>{
                     }else{
                         dispatch({type:USER_LOGIN_FAIL,payload:err.message})
                     }
-            }
-                //window.location.href = "/main"
+                }
             }else if(type=="client"){
                 try{
                     const {data} = await Axios.post("/api/clientlogin",{email,password})
                     dispatch({type:USER_LOGIN_SUCCESS,payload:data.user})
-                    localStorage.setItem("userdata",JSON.stringify(data.user))
                     localStorage.setItem("type",type)
-                    //window.location.href = "/main"
+                    
                 }catch(err){
                     if(err.message == "Request failed with status code 400"){
                         dispatch({type:USER_LOGIN_FAIL,payload:"Invalid credentials"})

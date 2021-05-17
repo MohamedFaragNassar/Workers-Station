@@ -11,14 +11,9 @@ import { useSelector } from 'react-redux';
 import Activate from './components/Activate';
 import ChangePassword from './components/ChangePassword';
 import Service from './components/Service';
-import AdminRoute from './components/Admin/AdminRoute';
-import AdminMain from './components/Admin/AdminMain';
-import AdminServices from './components/Admin/AdminServices';
-import AdminLocations from './components/Admin/AdminLocations';
-import AdminSellers from './components/Admin/AdminSellers';
-import AdminClients from './components/Admin/AdminClients';
-import AdminLogIn from './components/Admin/AdminLogIn';
 import Admin from './components/Admin/Admin';
+import AdminRoute from './components/Admin/AdminRoute';
+import AdminLogIn from './components/Admin/AdminLogIn';
 
 function App() {
   const {userData}  =  useSelector(state => state.userSignIn)
@@ -29,20 +24,16 @@ function App() {
          <Header/>
           <div className=" h-auto pt-5 w-full min-h-screen" >
             <Route path="/main" component={Main} />
-            <Route path="/" exact={true} component={()=><Redirect to={{pathname:"/main"}}/>} />
-            <Route path="/signin" component={SignIn}/>
-            <Route path="/signup" component={SignUp}/>
-            <Route path="/activate" component={Activate}/>
-            <Route path="/updatepassword" component={ChangePassword}/>
-            <Route path="/service/:id/:service" component={Service}/>
-            <ProtectedRoute path="/client/:id" component={Cleint}/>
-            <ProtectedRoute path="/seller/:id" component={Seller}/>
-            <Route path="/admin" component={Admin} />
-            <Route path="/admin/servics" component={AdminServices} />
-            <Route path="/admin/locations" component={AdminLocations} />
-            <Route path="/admin/sellers" component={AdminSellers} />
-            <Route path="/admin/clients" component={AdminClients} />
-            <Route path="/admin/login" component={AdminLogIn} />
+            <Route path="/" exact={true}         component={()=><Redirect to={{pathname:"/main"}}/>} />
+            <Route path="/signin"                component={SignIn}/>
+            <Route path="/signup"                component={SignUp}/>
+            <Route path="/activate"              component={Activate}/>
+            <Route path="/updatepassword"        component={ChangePassword}/>
+            <Route path="/service/:id/:service"  component={Service}/>
+            <ProtectedRoute path="/client/:id"   component={Cleint}/>
+            <ProtectedRoute path="/seller/:id"   component={Seller}/>
+            <Route path="/adminlogin"            component={AdminLogIn}/>
+            <Route  path="/admin"           component={Admin}/>
           </div>
     </div>
     {userData&&<footer className="h-20 z-10 relative" style={{background:"#183153"}}>

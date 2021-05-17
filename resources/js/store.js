@@ -7,12 +7,10 @@ import {getLocationsReducer,getServicesReducer,getSellerServingReducer,addServin
          getByServiceReducer,getToFourReducer,searchReducers} from './Reducers/servicesReducer'
 import {getSellerOrdersReducer,getClientOrdersReducer, addOrdersReducer,updateOrdersReducer
       ,addRatingsReducer} from './Reducers/ordersReducers'
-import {adminLoginReducer} from './Reducers/AdminReducer'
+import {adminLoginReducer,adminGetUsers,adminGetLocations,adminGetServices} from './Reducers/AdminReducer'
 
-const userData = localStorage.getItem("userdata")?JSON.parse(localStorage.getItem("userdata")):null
-const adminData = localStorage.getItem("adminData")?JSON.parse(localStorage.getItem("adminData")):null
 
-const initialState = {userSignIn:{userData},admin:{adminData}}
+const initialState = {}
 
 const reducer = combineReducers({
    userSignIn: loginReducer,
@@ -38,7 +36,10 @@ const reducer = combineReducers({
    admin: adminLoginReducer,
    rating: addRatingsReducer,
    search: searchReducers,
-   deleteAccount:deleteAccountReducer
+   deleteAccount:deleteAccountReducer,
+   getUsers:adminGetUsers,
+   adminServices:adminGetServices,
+   adminLocations:adminGetLocations,
 })
 
 const store = createStore(reducer, initialState, applyMiddleware(thunk))

@@ -7,14 +7,23 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientsController extends Controller
 {
+
+    public function getAll(Request $request){
+        $clients = Client::get();
+            error_log( print_r("mmmmmmmmmmmmmmm", TRUE) );
+
+        return response()->json(["users" => $clients]); 
+    }
+
+    public function delete(Request $request){
+        return Client::where("id",$request["id"])->delete();
+    }
     
     public function getone(Request $request)
     {
         
         $client = Client::where("id",$request->input("id"))->first();
         return response()->json(["client" => $client]);
-       
-       
     }
     
     public function update(Request $request)

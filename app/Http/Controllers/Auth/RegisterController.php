@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Seller;
@@ -93,6 +94,15 @@ class RegisterController extends Controller
             'last_name' => $request->input('last_name'),
             'phone' => $request->input('phone'),
             'address' => $request->input('address'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+    }
+    
+    protected function createAdmin(Request $request)
+    {
+        return Admin::create([
+            'id' => $request->input('id'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);

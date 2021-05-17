@@ -55,40 +55,46 @@ const AddService = ({isOpen,close,seller_id}) => {
                 <div className="w-11/12 relative  mb-4 mx-auto" >
                     <span className="absolute top-2 left-4">Service</span>
                     {services&&<select onChange={(e)=>setService(e.target.value)} className="w-full pb-4 pt-8 px-4 border-2 rounded-lg 
-                    focus:border-blue-400" required={true}>
+                    focus:border-blue-400 focus:outline-none" required={true}>
                         <option value={null} >---</option>
                         {services.map(service => 
                             <option value={service.service}>{service.name}</option>
                         )} 
                     </select>}
                 </div>
-                 <Link to="/ " className="text-blue-600 hover:text-blue-800 mb-2" >Cant find the service you want ? Apply for new Service</Link>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Snippet</span>
-                    <input className="w-full h-20 pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
+                    <input className="w-full h-20 pb-4 pt-8 px-4 border-2 rounded-lg 
+                    focus:outline-none focus:border-blue-400"
                       onChange={(e)=>setSnippet(e.target.value)} required="true" />
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4 bg-white w-full" >Details</span>
-                    <textarea required={true} className="w-full h-32 pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
+                    <textarea required={true} className="w-full h-32 pb-4 pt-8 px-4 border-2 rounded-lg
+                     focus:outline-none focus:border-blue-400"
                      style={{resize:"none"}} onChange={(e)=>setDetails(e.target.value)}  />
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Price (EGP/hr)</span>
-                    <input required={true} type="number" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
+                    <input required={true} type="number" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg 
+                    focus:outline-none focus:border-blue-400"
                       onChange={(e)=>setPrice(e.target.value)}/>
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Discount (%)</span>
-                    <input required={true} type="number" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
+                    <input required={true} type="number" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg ]
+                    focus:outline-none focus:border-blue-400"
                       onChange={(e)=>setDiscount(e.target.value)}/>
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Image</span>
-                    <input required={true} type="file" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
+                    <input required={true} type="file" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg 
+                    focus:border-blue-400 focus:outline-none"
                       onChange={(e)=>getImage(e)}/>
                 </div>
-                <button type="submit" onClick={(e)=>handleAddService(e)} className="px-4 py-2 mt-2 bg-gray-600 text-white rounded-md hover:bg-gray-500" disabled={service==null} >
+                <button type="submit" onClick={(e)=>handleAddService(e)}
+                 className="px-4 py-2 mt-2 bg-gray-600 text-white rounded-md hover:bg-gray-500 
+                 focus:outline-none" disabled={service==null} >
                     Add Service
                 </button>
                 

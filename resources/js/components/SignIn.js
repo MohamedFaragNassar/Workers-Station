@@ -5,7 +5,7 @@ import {login} from '../Actions/userActions'
 import ForgotPassword from './ForgotPassword'
 import Spinner from './Spinner'
 import Status from './Status'
-
+import {adminLogin} from '../Actions/AdminActions' 
 const SignIn = () => {
 
     const [email,setEmail] = useState()
@@ -14,10 +14,11 @@ const SignIn = () => {
     const [type,setType] = useState("client")
     const dispatch = useDispatch()
     
-    const x = useSelector(state => state.userSignIn)
-    const {loading,error,userData}  = x
+     const {loading,error,userData}  =useSelector(state => state.userSignIn)
     
-    console.log(x)
+    const {adminData}  =  useSelector(state => state.admin)
+    
+   
 
     const history = useHistory()
 
@@ -25,12 +26,26 @@ const SignIn = () => {
         e.preventDefault()
         dispatch(login(email,password,type))
     }
+
+    const handleReadyLogin = (type) => {
+        if(type=="admin"){
+            dispatch(adminLogin("mfnemo666@yahoo.com","12345678"))
+        }else if(type=="client"){
+            dispatch(login("mfnemo50500@yahoo.com","12345678","client"))
+
+        }else{
+            dispatch(login("mfnemo50600@yahoo.com","12345678","seller"))
+        }
+    }
  
     useEffect(() => {
         if(userData){
             history.push("/")
         }
-    }, [userData]) 
+        if(adminData){
+            window.location.href = "/admin/services"
+        }
+    }, [userData,adminData]) 
     
     return <>
         <form className="flex flex-col items-center justify-evenly w-full md:w-3/4 lg:w-1/3 h-auto mt-20 bg-white shadow-lg rounded-lg pb-10  pt-4 mx-auto" 
@@ -73,6 +88,29 @@ const SignIn = () => {
             <Link to="/signup/ " className="text-blue-600 hover:text-blue-800 mt-2 focus:outline-none" >
                 dont have account yet ? Sign Up
             </Link>
+            <div className="w-11/12 mt-2 flex items-center justify-between mx-2 gap-2">
+                <div onClick={()=>handleReadyLogin("seller")} to="/" 
+                className="border-2 p-2 rounded-xl flex items-center justify-between w-1/3 
+                hover:bg-gray-100 cursor-pointer focus:outline-none">
+                    <img className="w-8 h-8 md:w-12 md:h-12" 
+                    src="account.png"/>
+                    <span className="md:font-semibold" >Seller</span>
+                </div >
+                <div onClick={()=>handleReadyLogin("client")} to="/" 
+                className="border-2 p-2 rounded-xl flex items-center justify-between w-1/3 
+                hover:bg-gray-100 cursor-pointer focus:outline-none ">
+                    <img className="w-8 h-8 md:w-12 md:h-12" 
+                    src="account.png"/>
+                    <span className="md:font-semibold" >Client</span>
+                </div >
+                <div onClick={()=>handleReadyLogin("admin")} to="/" 
+                className="border-2 p-2 rounded-xl flex items-center justify-between w-1/3 
+                hover:bg-gray-100 cursor-pointer focus:outline-none ">
+                    <img className="w-8 h-8 md:w-12 md:h-12" 
+                    src="account.png"/>
+                    <span className="md:font-semibold" >Admin</span>
+                </div >
+            </div>
             {loading && <Spinner />}
             {error&& <Status status="fail" message={error}/>}
         </form>

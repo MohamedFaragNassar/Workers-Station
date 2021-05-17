@@ -18,6 +18,28 @@ Route::post("/api/logout","Auth\LoginController@logout");
 Route::post("/api/createseller","Auth\RegisterController@createseller");
 Route::post("/api/createclient","Auth\RegisterController@createclient");
 
+
+//Route::post("/api/adminlogin","Auth\LoginController@adminLogin");
+Route::post('/adminlogin', [ 'as' => 'login', 'uses' => 'Auth\LoginController@adminLogin']);
+
+
+Route::get("/api/clients","ClientsController@getAll")->middleware('auth:admin');
+Route::get("/api/sellers","SellersController@getAll")->middleware('auth:admin');
+
+Route::get("/api/adminservices","ServicesController@adminservices")->middleware('auth:admin');
+Route::get("/api/adminlocations","LocationsController@adminLocation")->middleware('auth:admin');
+
+Route::post("/api/createadmin","Auth\RegisterController@createAdmin")->middleware('auth:admin');
+
+Route::post("/api/addservice","ServicesController@create")->middleware('auth:admin');
+Route::post("/api/deleteservice","ServicesController@delete")->middleware('auth:admin');
+
+Route::post("/api/addlocation","LocationsController@create")->middleware('auth:admin');
+Route::post("/api/deletelocation","LocationsController@delete")->middleware('auth:admin');
+
+Route::delete("/api/client","ClientsController@delete")->middleware('auth:admin');
+Route::delete("/api/seller","SellersController@delete")->middleware('auth:admin');
+
 Route::get("/api/allservices","ServicesController@allservices");
 Route::post("/api/search","ServicesController@search");
 Route::post("/api/client","ClientsController@getone");
@@ -42,6 +64,8 @@ Route::post("/api/sellerserving","ServingController@getbyseller");
 Route::post("/api/updateserving","ServingController@update")->middleware('auth:seller');
 Route::post("/api/deleteserving","ServingController@delete")->middleware('auth:seller');
 Route::post("/api/offer","ServingController@getone");
+Route::view('/admin',"app")->middleware('auth:admin');
+Route::view('/admin/{path?}',"app")->where('path', '.+')->middleware('auth:admin');
 Route::view('/{path?}',"app")->where('path', '.+');
 //Route::view('/{path?}',"app")->where('path', '.+')->middleware('auth:sanctum');
 /* Auth::routes(); */
