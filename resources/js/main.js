@@ -30,10 +30,10 @@ function App() {
             <Route path="/activate"              component={Activate}/>
             <Route path="/updatepassword"        component={ChangePassword}/>
             <Route path="/service/:id/:service"  component={Service}/>
-            <ProtectedRoute path="/client/:id"   component={Cleint}/>
-            <ProtectedRoute path="/seller/:id"   component={Seller}/>
+            <Route path="/client/:id"            component={Cleint}/>
+            <Route path="/seller/:id"            component={Seller}/>
             <Route path="/adminlogin"            component={AdminLogIn}/>
-            <Route  path="/admin"           component={Admin}/>
+            <Route  path="/admin"                component={Admin}/>
           </div>
     </div>
     {userData&&<footer className="h-20 z-10 relative" style={{background:"#183153"}}>

@@ -5,9 +5,7 @@ import {useSelector } from "react-redux"
  const ProtectedRoute = ({component:Component,...rest}) =>{
 
   const {userData} = useSelector(state => state.userSignIn)
-    console.log(userData)
-  
-        return (
+    return (
             <Route {...rest} render = {props => {
                 if(userData){
                     return <Component {...props} />

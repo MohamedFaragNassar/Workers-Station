@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->date("date")->useCurrent();
             $table->foreignId('seller_id')->constrained();
             $table->foreignId('client_id')->constrained();
-            $table->foreignId('service')->constrained();
+            $table->foreignId('service_name')->constrained();
 
         });
     }

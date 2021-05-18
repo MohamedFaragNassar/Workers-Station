@@ -37,8 +37,8 @@ Route::post("/api/deleteservice","ServicesController@delete")->middleware('auth:
 Route::post("/api/addlocation","LocationsController@create")->middleware('auth:admin');
 Route::post("/api/deletelocation","LocationsController@delete")->middleware('auth:admin');
 
-Route::delete("/api/client","ClientsController@delete")->middleware('auth:admin');
-Route::delete("/api/seller","SellersController@delete")->middleware('auth:admin');
+Route::post("/api/deleteclient","ClientsController@delete")->middleware('auth:admin');
+Route::post("/api/deleteseller","SellersController@delete")->middleware('auth:admin');
 
 Route::get("/api/allservices","ServicesController@allservices");
 Route::post("/api/search","ServicesController@search");

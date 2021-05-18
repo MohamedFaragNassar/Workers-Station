@@ -2831,7 +2831,7 @@ var deleteLocation = function deleteLocation(name) {
 var deleteUser = function deleteUser(id, type) {
   return /*#__PURE__*/function () {
     var _ref8 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee8(dispatch) {
-      var _yield$Axios$delete, data;
+      var _yield$Axios$post7, data;
 
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee8$(_context8) {
         while (1) {
@@ -2842,13 +2842,13 @@ var deleteUser = function deleteUser(id, type) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_USER_REQUEST
               });
               _context8.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().delete("/api/".concat(type, "/"), {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/".concat(type == "client" ? "deleteclient" : "deleteseller", "/"), {
                 id: id
               });
 
             case 4:
-              _yield$Axios$delete = _context8.sent;
-              data = _yield$Axios$delete.data;
+              _yield$Axios$post7 = _context8.sent;
+              data = _yield$Axios$post7.data;
               dispatch({
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_USER_SUCCESS,
                 payload: data
@@ -8796,7 +8796,7 @@ var Header = function Header() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
           to: "/main",
           className: "text-lg md:text-2xl ml-2 lg:ml-10 text-bold text-white",
-          children: "Services"
+          children: "Workers Station"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "hidden md:flex items-center justify-center h-full w-1/3",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -9479,7 +9479,6 @@ var ProtectedRoute = function ProtectedRoute(_ref) {
   }),
       userData = _useSelector.userData;
 
-  console.log(userData);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, _objectSpread(_objectSpread({}, rest), {}, {
     render: function render(props) {
       if (userData) {
@@ -10311,10 +10310,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var ServiceCard = function ServiceCard(_ref) {
   var service = _ref.service;
-  console.log(service);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "w-64 mt-5 border rounded-lg shadow-md bg-white rounded-md flex flex-col items-center justify-between",
+      className: "w-64 mt-5 border rounded-lg shadow-md bg-white  flex flex-col items-center justify-between",
       style: {
         height: 450 + "px"
       },
@@ -12155,10 +12153,10 @@ function App() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
             path: "/service/:id/:service",
             component: _components_Service__WEBPACK_IMPORTED_MODULE_11__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_ProtectedRoute__WEBPACK_IMPORTED_MODULE_7__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
             path: "/client/:id",
             component: _components_Cleint__WEBPACK_IMPORTED_MODULE_5__.default
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_ProtectedRoute__WEBPACK_IMPORTED_MODULE_7__.default, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {
             path: "/seller/:id",
             component: _components_Seller__WEBPACK_IMPORTED_MODULE_6__.default
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Route, {

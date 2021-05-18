@@ -89,7 +89,7 @@ const deleteLocation = (name) => async (dispatch)=>{
 const deleteUser = (id,type) => async (dispatch)=>{
     try{
         dispatch({type:DELETE_USER_REQUEST})
-        const {data} = await Axios.delete(`/api/${type}/`,{id})
+        const {data} = await Axios.post(`/api/${type == "client"? "deleteclient":"deleteseller"}/`,{id})
         dispatch({type:DELETE_USER_SUCCESS,payload:data})
         dispatch({type:DELETE_USER,payload:id})
     }catch(err){
