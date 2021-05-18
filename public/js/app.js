@@ -2503,7 +2503,7 @@ var adminLogin = function adminLogin(email, password) {
                         switch (_context.prev = _context.next) {
                           case 0:
                             _context.next = 2;
-                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/adminlogin/", {
+                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/adminlogin/", {
                               email: email,
                               password: password
                             });
@@ -9734,8 +9734,14 @@ var Seller = function Seller(props) {
     dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_7__.getProfile)(id, "seller"));
   }, [id]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-      message: error.message
+    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      className: "w-full flex items-center justify-center mt-24",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}), " "]
+    }) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      className: "w-full flex items-center justify-center mt-24",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+        message: error.message
+      })
     }) : profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
       className: "min-h-screen flex flex-col lg:flex-row items-start justify-between",
       children: [profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__.default, {

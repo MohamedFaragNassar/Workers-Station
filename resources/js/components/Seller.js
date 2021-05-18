@@ -34,7 +34,10 @@ const Seller = (props) => {
    
     return <>
 
-        {loading?<Spinner /> : error ? <Status message={error.message} /> : profile ?
+        {loading?<div className="w-full flex items-center justify-center mt-24" ><Spinner /> </div>:
+        error ? <div className="w-full flex items-center justify-center mt-24" >
+            <Status message={error.message} /> 
+            </div>: profile ?
             <div className="min-h-screen flex flex-col lg:flex-row items-start justify-between">
            {profile&& <Profile profile={profile.seller} type="seller" />}
             <div className=" w-full lg:w-2/3 flex flex-col items-center mt-20" >
