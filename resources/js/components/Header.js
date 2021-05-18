@@ -39,7 +39,7 @@ const Header = () => {
     return <>
         <div className="h-16 fixed mb-5 top-0 flex items-center z-10
             justify-between border-b-4 rounded-b-lg border-green-300" style={{background:"#11698e",width:90+"%"}}>
-             <Link to="/main" className="text-lg md:text-2xl ml-2 lg:ml-10 text-bold text-white">Services</Link>
+             <Link to="/main" className="text-lg md:text-2xl ml-2 lg:ml-10 text-bold text-white">Workers Station</Link>
                 <div className="hidden md:flex items-center justify-center h-full w-1/3" >
                     <div className="w-full flex items-center relative" >
                         <input type="text" placeholder="search for services" className="p-2 w-11/12 rounded-lg" 
