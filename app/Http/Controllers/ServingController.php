@@ -7,6 +7,7 @@ use App\Models\Order;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ServingController extends Controller
 {
@@ -54,6 +55,10 @@ class ServingController extends Controller
     }
     public function getbyseller(Request $request)
     {
+        if (!$request->secure() && App::environment() === 'production') {
+            return redirect()->secure($request->getRequestUri());
+        }
+
         
         $offers = Serving::with("order")->where("servings.seller_id",$request["id"])->get();
         return response()->json(["offers" => $offers]); 

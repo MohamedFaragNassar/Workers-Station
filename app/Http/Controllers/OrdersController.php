@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Serving;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\PseudoTypes\True_;
@@ -25,6 +26,10 @@ class OrdersController extends Controller
 
     public function getbyseller(Request $request)
     {
+        if (!$request->secure() && App::environment() === 'production') {
+            return redirect()->secure($request->getRequestUri());
+        }
+
         $orders = Order::with("rating")->where("seller_id",$request["id"])->orderBy("date",'DESC')->get();
                         
         return response()->json(["orders" => $orders]);

@@ -23,8 +23,8 @@ const Seller = (props) => {
     const dispatch = useDispatch()
     const id = props.match.params.id;
     
-    const {loading,error,servings} = useSelector(state => state.sellerSeving)
-    const {profile} = useSelector(state => state.getProfile)
+    const {servings} = useSelector(state => state.sellerSeving)
+    const {loading,error,profile} = useSelector(state => state.getProfile)
 
     useEffect(() => {
         dispatch(getSellerServing(id))
@@ -32,8 +32,10 @@ const Seller = (props) => {
         dispatch(getProfile(id,"seller"))
     }, [id])
    
-    return (
-        <div className="min-h-screen flex flex-col lg:flex-row items-start justify-between">
+    return <>
+
+        {loading?<Spinner /> : error ? <Status message={error.message} /> : profile ?
+            <div className="min-h-screen flex flex-col lg:flex-row items-start justify-between">
            {profile&& <Profile profile={profile.seller} type="seller" />}
             <div className=" w-full lg:w-2/3 flex flex-col items-center mt-20" >
                 <div className="w-full ml-2 mb-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim" style={{height:height+"vh"}} >
@@ -81,8 +83,8 @@ const Seller = (props) => {
                 </div>
             </div>
             {userData&&<AddService isOpen={isOpen} close={()=>setIsOpen(false)} seller_id={userData.id} />}
-        </div>
-    )
+        </div> : null}
+    </>
 }
 
 export default Seller

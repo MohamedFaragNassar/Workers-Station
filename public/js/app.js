@@ -9663,6 +9663,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Seller = function Seller(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(41),
       _useState2 = _slicedToArray(_useState, 2),
@@ -9718,13 +9719,13 @@ var Seller = function Seller(props) {
   var _useSelector6 = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.sellerSeving;
   }),
-      loading = _useSelector6.loading,
-      error = _useSelector6.error,
       servings = _useSelector6.servings;
 
   var _useSelector7 = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.getProfile;
   }),
+      loading = _useSelector7.loading,
+      error = _useSelector7.error,
       profile = _useSelector7.profile;
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -9732,124 +9733,128 @@ var Seller = function Seller(props) {
     dispatch((0,_Actions_ordersActions__WEBPACK_IMPORTED_MODULE_6__.getSellerOrders)(id));
     dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_7__.getProfile)(id, "seller"));
   }, [id]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-    className: "min-h-screen flex flex-col lg:flex-row items-start justify-between",
-    children: [profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__.default, {
-      profile: profile.seller,
-      type: "seller"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-      className: " w-full lg:w-2/3 flex flex-col items-center mt-20",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-        className: "w-full ml-2 mb-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim",
-        style: {
-          height: height + "vh"
-        },
-        children: [ordersLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}), ordersError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          message: ordersError,
-          status: "fail"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "w-full px-10 py-2 border-b-2 flex items-center justify-between ",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h1", {
-            className: "font-bold text-xl",
-            children: "Orders"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "p-2",
-          children: orders && orders.map(function (order) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_SellerOrderItem__WEBPACK_IMPORTED_MODULE_10__.default, {
-              order: order
-            });
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-            className: "focus:outline-none",
-            onClick: height == 41 ? function () {
-              return setHeight(83);
-            } : function () {
-              return setHeight(41);
-            },
-            children: height == 41 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
-              children: ["Expand ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                className: "ml-2 fas fa-arrow-circle-down"
-              })]
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
-              children: ["Shrink ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                className: "ml-2 fas fa-arrow-circle-up"
-              })]
-            })
-          })
-        })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
+    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+      message: error.message
+    }) : profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      className: "min-h-screen flex flex-col lg:flex-row items-start justify-between",
+      children: [profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__.default, {
+        profile: profile.seller,
+        type: "seller"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-        className: "w-full ml-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim",
-        style: {
-          height: servicesHeight + "vh"
-        },
-        children: [addServingLoading || deleteServingLoading || updateServingLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}) : null, AddServingError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          status: "fail",
-          message: AddServingError
-        }) : null, deleteServingError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          status: "fail",
-          message: deleteServingError
-        }) : null, updateServingError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          status: "fail",
-          message: updateServingError
-        }) : null, addServing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          status: "success",
-          message: "New Service Added Successfully"
-        }) : null, deleteServing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          status: "success",
-          message: "Service has been deleted Successfully"
-        }) : null, updateServing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-          status: "success",
-          message: "Service has been Updated Successfully"
-        }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-          className: "w-full px-10 py-2 border-b-2 flex items-center justify-between ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h1", {
-            className: "font-bold text-xl",
-            children: "Services"
-          }), userData && userData.id == id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-            onClick: function onClick() {
-              return setIsOpen(true);
-            },
-            className: " px-2 py-1 md:px-10 md:py-2 bg-gray-600 text-white text-lg rounded-lg",
-            children: "Add Service"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "p-2",
-          children: servings && servings.map(function (ser) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ServiceItem__WEBPACK_IMPORTED_MODULE_3__.default, {
-              service: ser
-            }, ser);
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-          className: "w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
-            className: "focus:outline-none",
-            onClick: servicesHeight == 41 ? function () {
-              return setServicesHeight(83);
-            } : function () {
-              return setServicesHeight(41);
-            },
-            children: servicesHeight == 41 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
-              children: ["Expand ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                className: "ml-2 fas fa-arrow-circle-down"
-              })]
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
-              children: ["Shrink ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                className: "ml-2 fas fa-arrow-circle-up"
-              })]
+        className: " w-full lg:w-2/3 flex flex-col items-center mt-20",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          className: "w-full ml-2 mb-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim",
+          style: {
+            height: height + "vh"
+          },
+          children: [ordersLoading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}), ordersError && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            message: ordersError,
+            status: "fail"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            className: "w-full px-10 py-2 border-b-2 flex items-center justify-between ",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h1", {
+              className: "font-bold text-xl",
+              children: "Orders"
             })
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            className: "p-2",
+            children: orders && orders.map(function (order) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_SellerOrderItem__WEBPACK_IMPORTED_MODULE_10__.default, {
+                order: order
+              });
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            className: "w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+              className: "focus:outline-none",
+              onClick: height == 41 ? function () {
+                return setHeight(83);
+              } : function () {
+                return setHeight(41);
+              },
+              children: height == 41 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+                children: ["Expand ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
+                  className: "ml-2 fas fa-arrow-circle-down"
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+                children: ["Shrink ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
+                  className: "ml-2 fas fa-arrow-circle-up"
+                })]
+              })
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+          className: "w-full ml-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim",
+          style: {
+            height: servicesHeight + "vh"
+          },
+          children: [addServingLoading || deleteServingLoading || updateServingLoading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}) : null, AddServingError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            status: "fail",
+            message: AddServingError
+          }) : null, deleteServingError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            status: "fail",
+            message: deleteServingError
+          }) : null, updateServingError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            status: "fail",
+            message: updateServingError
+          }) : null, addServing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            status: "success",
+            message: "New Service Added Successfully"
+          }) : null, deleteServing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            status: "success",
+            message: "Service has been deleted Successfully"
+          }) : null, updateServing ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+            status: "success",
+            message: "Service has been Updated Successfully"
+          }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "w-full px-10 py-2 border-b-2 flex items-center justify-between ",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("h1", {
+              className: "font-bold text-xl",
+              children: "Services"
+            }), userData && userData.id == id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+              onClick: function onClick() {
+                return setIsOpen(true);
+              },
+              className: " px-2 py-1 md:px-10 md:py-2 bg-gray-600 text-white text-lg rounded-lg",
+              children: "Add Service"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            className: "p-2",
+            children: servings && servings.map(function (ser) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ServiceItem__WEBPACK_IMPORTED_MODULE_3__.default, {
+                service: ser
+              }, ser);
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+            className: "w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("button", {
+              className: "focus:outline-none",
+              onClick: servicesHeight == 41 ? function () {
+                return setServicesHeight(83);
+              } : function () {
+                return setServicesHeight(41);
+              },
+              children: servicesHeight == 41 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+                children: ["Expand ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
+                  className: "ml-2 fas fa-arrow-circle-down"
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("span", {
+                children: ["Shrink ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
+                  className: "ml-2 fas fa-arrow-circle-up"
+                })]
+              })
+            })
+          })]
         })]
+      }), userData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_AddService__WEBPACK_IMPORTED_MODULE_4__.default, {
+        isOpen: isOpen,
+        close: function close() {
+          return setIsOpen(false);
+        },
+        seller_id: userData.id
       })]
-    }), userData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_AddService__WEBPACK_IMPORTED_MODULE_4__.default, {
-      isOpen: isOpen,
-      close: function close() {
-        return setIsOpen(false);
-      },
-      seller_id: userData.id
-    })]
+    }) : null
   });
 };
 

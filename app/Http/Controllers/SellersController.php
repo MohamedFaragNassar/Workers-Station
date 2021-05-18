@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Seller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\PseudoTypes\True_;
 
@@ -22,6 +23,10 @@ class SellersController extends Controller
 
     public function getone(Request $request)
     {
+        if (!$request->secure() && App::environment() === 'production') {
+            return redirect()->secure($request->getRequestUri());
+        }
+
         $orders = Order::leftJoin("ratings","orders.id","=","ratings.order_id")
         ->where("orders.seller_id", $request["id"])
         ->select("orders.id","ratings.value")
