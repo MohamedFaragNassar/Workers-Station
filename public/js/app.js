@@ -9765,7 +9765,7 @@ var Seller = function Seller(props) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "p-2",
-            children: orders && orders.map(function (order) {
+            children: (orders === null || orders === void 0 ? void 0 : orders.length) > 0 && orders.map(function (order) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_SellerOrderItem__WEBPACK_IMPORTED_MODULE_10__.default, {
                 order: order
               });
@@ -9827,7 +9827,7 @@ var Seller = function Seller(props) {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "p-2",
-            children: servings && servings.map(function (ser) {
+            children: (servings === null || servings === void 0 ? void 0 : servings.length) > 0 && servings.map(function (ser) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ServiceItem__WEBPACK_IMPORTED_MODULE_3__.default, {
                 service: ser
               }, ser);
@@ -10165,7 +10165,7 @@ var Service = function Service(props) {
         status: "success"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "text-xl font-bold mb-10",
-        children: "".concat(serving.offer.service, " By ").concat(profile.seller.first_name, " ").concat(profile.seller.last_name)
+        children: "".concat(serving.offer.service, " By ").concat(profile === null || profile === void 0 ? void 0 : profile.seller.first_name, " ").concat(profile === null || profile === void 0 ? void 0 : profile.seller.last_name)
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "h-5/6 flex flex-col-reverse lg:flex-row items-center mt-6 lg:mt-0",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -10174,11 +10174,11 @@ var Service = function Service(props) {
             className: "flex flex-col items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
               className: "w-20 h-20 rounded-full",
-              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/sellers/".concat(profile.seller.id, ".jpg")
+              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/sellers/".concat(profile === null || profile === void 0 ? void 0 : profile.seller.id, ".jpg")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
               to: "/seller/".concat(id),
               className: "text-xl font-semibold mt-2",
-              children: "".concat(profile.seller.first_name, " ").concat(profile.seller.last_name)
+              children: "".concat(profile === null || profile === void 0 ? void 0 : profile.seller.first_name, " ").concat(profile === null || profile === void 0 ? void 0 : profile.seller.last_name)
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "w-full lg:w-2/3 mx-auto flex items-center flex-col mt-4 mb-8",
@@ -10188,7 +10188,7 @@ var Service = function Service(props) {
                 className: "fas fa-compass"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "w-10/12 text-left ml-2",
-                children: profile.seller.location
+                children: profile === null || profile === void 0 ? void 0 : profile.seller.location
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "w-3/5 mt-8 flex items-center justify-between mx-auto text-xl",
@@ -10196,7 +10196,7 @@ var Service = function Service(props) {
                 className: "fas fa-clock"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "w-10/12 text-left",
-                children: profile.seller.daily_start
+                children: profile === null || profile === void 0 ? void 0 : profile.seller.daily_start
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "w-3/5 mt-8 flex items-center justify-between mx-auto text-xl",
@@ -10204,7 +10204,7 @@ var Service = function Service(props) {
                 className: "far fa-clock"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "w-10/12 text-left",
-                children: profile.seller.daily_end
+                children: profile === null || profile === void 0 ? void 0 : profile.seller.daily_end
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "w-2/3 mx-auto flex items-center flex-col mt-8 mb-10",
@@ -10214,7 +10214,7 @@ var Service = function Service(props) {
                 size: 30
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "mt-3",
-                children: "( ".concat(profile.rating[1], " Reviews )")
+                children: "( ".concat(profile === null || profile === void 0 ? void 0 : profile.rating[1], " Reviews )")
               })]
             })]
           })]
@@ -10273,13 +10273,13 @@ var Service = function Service(props) {
             })]
           })]
         })]
-      }), serving && profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AddOrder__WEBPACK_IMPORTED_MODULE_8__.default, _defineProperty({
-        service: serving.offer,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AddOrder__WEBPACK_IMPORTED_MODULE_8__.default, _defineProperty({
+        service: serving === null || serving === void 0 ? void 0 : serving.offer,
         isOpen: isOpen,
         close: function close() {
           return setIsOpen(false);
         },
-        seller: profile.seller
+        seller: profile === null || profile === void 0 ? void 0 : profile.seller
       }, "close", function close() {
         return setIsOpen(false);
       }))]

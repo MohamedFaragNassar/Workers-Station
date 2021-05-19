@@ -55,12 +55,7 @@ class ServingController extends Controller
     }
     public function getbyseller(Request $request)
     {
-        if (!$request->secure() && App::environment() === 'production') {
-            return redirect()->secure($request->getRequestUri());
-        }
-
-        
-        $offers = Serving::with("order")->where("servings.seller_id",$request["id"])->get();
+        $offers = Serving::with("orders")->where("servings.seller_id",$request["id"])->get();
         return response()->json(["offers" => $offers]); 
         
     }

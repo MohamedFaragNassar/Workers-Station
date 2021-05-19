@@ -48,7 +48,7 @@ const Seller = (props) => {
                         <h1 className="font-bold text-xl">Orders</h1>
                     </div>
                     <div className="p-2">
-                    {orders&&orders.map(order => 
+                    {orders?.length > 0 &&orders.map(order => 
                             <SellerOrderItem order={order} />
                         )}
                     </div>
@@ -74,7 +74,7 @@ const Seller = (props) => {
                         </button>}
                     </div>
                     <div className="p-2">
-                    {servings&&servings.map(ser => 
+                    {servings?.length > 0 &&servings.map(ser => 
                             <ServiceItem key={ser} service={ser} />
                         )}
                     </div>
