@@ -95,8 +95,9 @@ const Service = (props) => {
                             <span className="text-xl font-bold mb-2">Details :</span>
                             <div className="text-left text-base lg:text-lg">{serving.offer.details}</div>
                         </div>
-                        <img src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${id}_${service}.jpg`} 
-                        className="w-1/2 mx-auto h-80 rounded-lg hidden lg:block"/>
+                        <img className="w-1/2 mx-auto h-80 rounded-lg hidden lg:block"
+                        src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${id}_${service}.jpg`}/> 
+                        
                    </div>
                    <div className="flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0">
                             <div className="flex flex-col items-center lg:flex-row  lg:items-center">

@@ -10232,8 +10232,8 @@ var Service = function Service(props) {
                 children: serving.offer.details
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service, ".jpg"),
-              className: "w-1/2 mx-auto h-80 rounded-lg hidden lg:block"
+              className: "w-1/2 mx-auto h-80 rounded-lg hidden lg:block",
+              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service, ".jpg")
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0",
@@ -11703,7 +11703,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var UnSignedUser = function UnSignedUser() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "md:mr-4 w-1/2 md:w-1/4 lg:w-max lg:mr-10",
+    className: "w-max wr-2 lg:w-max lg:mr-10",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
       className: "lg:text-xl lg:p-5 md:p-2 p-1 text-white",
       to: "/signin",
