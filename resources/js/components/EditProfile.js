@@ -9,13 +9,13 @@ const EditProfile = ({isOpen,close,domNode,user}) => {
 
     const {userData}  =  useSelector(state => state.userSignIn)
      
-    const [first_name,setFirstname] = useState(user.first_name)
-    const [last_name,setLasttname] = useState(user.last_name) 
-    const [email,setEmail] = useState(user.email) 
-    const [phone,setPhone] = useState(user.phone) 
-    const [address,setAddress] = useState(user.address) 
-    const [start,setStart] = useState(user.daily_start)
-    const [end,setEnd] = useState(user.daily_end)
+    const [first_name,setFirstname] = useState()
+    const [last_name,setLasttname] = useState() 
+    const [email,setEmail] = useState() 
+    const [phone,setPhone] = useState() 
+    const [address,setAddress] = useState() 
+    const [start,setStart] = useState()
+    const [end,setEnd] = useState()
 
     const dispatch = useDispatch()
     const type = localStorage.getItem("type")
@@ -61,38 +61,47 @@ const EditProfile = ({isOpen,close,domNode,user}) => {
                 <div className="w-11/12 relative flex items-center justify-between  mb-4 mx-auto" >
                     <div className="relative" style={{width:45+"%"}}>
                         <span className="absolute top-2 left-4">First Name</span>
-                        <input onChange={(e)=>setFirstname(e.target.value)}  defaultValue={first_name}
-                        className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400" type="text"/>
+                        <input onChange={(e)=>setFirstname(e.target.value)}  defaultValue={user?.first_name}
+                        className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400" 
+                        type="text"/>
                     </div>
                     <div  className="relative"  style={{width:45+"%"}}>
                         <span className="absolute top-2 left-4">Last Name</span>
-                        <input onChange={(e)=>setLasttname(e.target.value)} defaultValue={last_name}
-                        className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400" type="text"/>
+                        <input onChange={(e)=>setLasttname(e.target.value)} defaultValue={user?.last_name}
+                        className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400" 
+                        type="text"/>
                     </div>
                 </div>
                 <div  className="w-11/12 relative  mb-4 mx-auto">
                     <span  className="absolute top-2 left-4" >Email</span>
-                    <input className="w-full h-20 pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
-                      onChange={(e)=>setEmail(e.target.value)} defaultValue={email} />
+                    <input className="w-full h-20 pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none
+                     focus:border-blue-400"
+                      onChange={(e)=>setEmail(e.target.value)} defaultValue={user?.email} />
                 </div>
                 {type=="client."?<div  className="w-11/12 relative  mb-4 mx-auto">
                     <span className="absolute top-2 left-4" >Address</span>
-                    <input  onChange={(e)=>setAddress(e.target.value)} defaultValue={address}
-                     className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400" type="text"/>
+                    <input  onChange={(e)=>setAddress(e.target.value)} defaultValue={user?.address}
+                     className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400" 
+                     type="text"/>
                 </div>:null}
                 <div  className="w-11/12 relative  mb-4 mx-auto">
                     <span className="absolute top-2 left-4" >Phone</span>
-                    <input onChange={(e)=>setPhone(e.target.value)} defaultValue={phone}
-                    className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400" type="text"/>
+                    <input onChange={(e)=>setPhone(e.target.value)} defaultValue={user?.phone}
+                    className="w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400"
+                     type="text"/>
                 </div>
                 {type=="seller"&&<div className="w-11/12 relative  mb-2 mx-auto flex items-center justify-between">
-                    <div className="w-full pb-2 px-4 border-2 rounded-lg focus:border-blue-400 flex flex-col items-start" style={{width:48+"%"}} >
+                    <div className="w-full pb-2 px-4 border-2 rounded-lg focus:outline-none 
+                    focus:border-blue-400 flex flex-col items-start" style={{width:48+"%"}} >
                         <span className="mb-2">Working Start Hour</span>
-                        <TimePicker onChange={(t)=>setStart(t.format("LT"))} className="w-full" defaultValue={moment()}  showSecond={false} />
+                        <TimePicker onChange={(t)=>setStart(t.format("LT"))} className="w-full" defaultValue={moment()}  
+                        showSecond={false} />
                     </div>
-                    <div className="w-full pb-2 px-4 border-2 rounded-lg focus:border-blue-400 flex flex-col items-start" style={{width:48+"%"}} >
+                    <div className="w-full pb-2 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400
+                     flex flex-col items-start" style={{width:48+"%"}} >
                         <span className="mb-2">Working End Hour</span>
-                        <TimePicker onChange={(t)=>setEnd(t.format("LT"))} disabledHours={()=>[]} className="w-full" defaultValue={moment()} showSecond={false} />
+                        <TimePicker onChange={(t)=>setEnd(t.format("LT"))} disabledHours={()=>[]} className="w-full" 
+                        defaultValue={moment()} showSecond={false} />
                     </div>
             </div>}
             </div>

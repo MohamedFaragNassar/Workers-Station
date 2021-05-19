@@ -19,7 +19,7 @@ const Highlight = ({service}) => {
                     <span className="ml-4" >{service.location}</span>
                 </div>
                 <div className=" text-xl mb-4">
-                    <i class="fas fa-coins"></i>
+                    <i className="fas fa-coins"></i>
                     <span className="ml-4">{`${service.price} $/hr`}</span>
                 </div>
                 <Review color="#11698e" size={25} value={service.val} />

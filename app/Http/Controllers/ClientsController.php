@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Console\Input\Input;
 
 class ClientsController extends Controller
 {
 
     public function getAll(Request $request){
         $clients = Client::get();
-            error_log( print_r("mmmmmmmmmmmmmmm", TRUE) );
-
         return response()->json(["users" => $clients]); 
     }
 
@@ -29,21 +28,18 @@ class ClientsController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'first_name' => ['required', 'string', 'max:50'],
-            'last_name' => ['required', 'string', 'max:50'],
-            'phone' => ['required', 'string', 'max:50'],
+            'first_name' => [ 'string', 'max:50'],
+            'last_name' => [ 'string', 'max:50'],
+            'phone' => [ 'string', 'max:50'],
             'address' => ['string', 'max:250'],
-            'email' => ['required','unique:clients',"email"],
+            'email' => ['unique:clients',"email"],
            ]);
         
-            
+            $data = $request->only("first_name","last_name","email","phone");
+            $filterData = array_filter($data);
+           
            if(Auth::guard("client")->user() && Auth::guard("client")->user()["id"] == $request["id"] ){
-                $client = Client::where("id",$request->input("id"))->update([
-                    "first_name"=>$request->input("first_name"),
-                    "last_name"=>$request->input("last_name"),
-                    "email"=>$request->input("email"),
-                    "phone"=>$request->input("phone"),
-                ]);
+                $client = Client::where("id",$request->input("id"))->update($filterData);
                 $updatedClient =  Client::where("id",$request->input("id"))->first();
                 return response()->json(["client" => $updatedClient]);
            }

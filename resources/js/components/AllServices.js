@@ -76,7 +76,7 @@ const AllServices = () => {
                                 </div>
                                 <div className="flex items-center justify-start px-5">
                                     {cat[1]?.map(ser => 
-                                        <ServiceCard service={ser} />
+                                        <ServiceCard service={ser} key={ser.name} />
                                     )}
                                 </div>
                              </div>   

@@ -7,7 +7,7 @@ import Confirm from './Confirm'
 import {useClickToClose} from '../helpers/CTC'
 
 const Profile = ({profile,type}) => {
-
+    console.log(profile)
     const [isOpen,setIsOpen] = useState(false)
     const [isDelOpen,setIsDelOpen] = useState(false)
     const [x,SetX] = useState(false)
@@ -24,7 +24,7 @@ const Profile = ({profile,type}) => {
         const formData = new FormData()
         const img = e.target.files[0]
         formData.append("image",img)
-        dispatch(updatePersonalImage(formData,userData.id,type))
+        dispatch(updatePersonalImage(formData,userData?.id,type))
         SetX(!x)
     }
 
@@ -40,7 +40,7 @@ const Profile = ({profile,type}) => {
     
     return <>
         {profile&&userData&&<div className="w-full  lg:w-1/3 shadow-lg rounded-md mt-12 lg:mt-20 p-5  bg-white relative">
-            {userData.id==profile.id?
+            {userData?.id==profile.id?
             <button className="text-2xl text-gray-600 hover:text-gray-400 absolute top-2 right-2" onClick={()=>setIsOpen(true)}>
                 <i className="far fa-edit"></i>
             </button>:null}
@@ -48,7 +48,7 @@ const Profile = ({profile,type}) => {
                 <div className="relative">
                     <img src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/${folder}/${profile.id}.jpg`} 
                     className="w-32 h-32 rounded-full" />
-                   {userData.id==profile.id? <><input id="image" type="file" onChange={(e)=>handleUploadPersonalImage(e)} className="hidden"/>
+                   {userData?.id==profile.id? <><input id="image" type="file" onChange={(e)=>handleUploadPersonalImage(e)} className="hidden"/>
                     <label htmlFor="image" className=" text-2xl opacity-70 hover:opacity-100 cursor-pointer absolute center " >
                         <i className=" text-2xl op fal fa-camera-alt text-gray-300 font-bold"></i>
                     </label></>:null}
@@ -83,14 +83,14 @@ const Profile = ({profile,type}) => {
                 <i className="fas fa-compass"></i>
                 <span className="w-10/12 text-left">{profile.address}</span>
             </div>:null}
-            {/* {userData.id==profile.id&&<button onClick={()=>setIsDelOpen(true)}
+            {/* {userData?.id==profile.id&&<button onClick={()=>setIsDelOpen(true)}
             className="px-4 py-3 bg-red-500 rounded-lg text-white mt-7 hover:bg-red-600 font-semibold" >
                 Delete My Account
             </button>} */}
         </div>}
         {/* <Confirm title="Deleting Your Account" message="Are you sure you want to delete your account"
          isOpen={isDelOpen} close={()=>setIsDelOpen(false)} handler={()=>hanledelAccount()} /> */}
-        {userData.id==profile.id&&<EditProfile isOpen={isOpen} domNode={node} close={()=>setIsOpen(false)} user={profile} />}
+        {userData?.id==profile.id&&<EditProfile isOpen={isOpen} domNode={node} close={()=>setIsOpen(false)} user={profile} />}
     </>
 }
 

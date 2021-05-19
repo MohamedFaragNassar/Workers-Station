@@ -23,7 +23,7 @@ const SideMenu = () => {
                  hover:bg-gray-200 rounded-full" >Top Rated</Link>
                 {services.map(service => 
                     <Link className="text-lg font-semibold px-8  py-4 hover:bg-gray-200 rounded-full focus:outline-none"
-                     to={`/main/service/${service.name}`} >{service.name}</Link>    
+                     to={`/main/service/${service.name}`} key={service.name} >{service.name}</Link>    
                 )}
             </div>}
         </div>

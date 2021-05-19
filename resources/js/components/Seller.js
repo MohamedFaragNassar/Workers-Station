@@ -49,7 +49,7 @@ const Seller = (props) => {
                     </div>
                     <div className="p-2">
                     {orders?.length > 0 &&orders.map(order => 
-                            <SellerOrderItem order={order} />
+                            <SellerOrderItem order={order} key={order.id} />
                         )}
                     </div>
                     <div className="w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100" >
@@ -75,7 +75,7 @@ const Seller = (props) => {
                     </div>
                     <div className="p-2">
                     {servings?.length > 0 &&servings.map(ser => 
-                            <ServiceItem key={ser} service={ser} />
+                            <ServiceItem service={ser} key={ser.service} />
                         )}
                     </div>
                     <div className="w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100" >

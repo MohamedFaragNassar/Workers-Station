@@ -9,8 +9,10 @@ import {getSellerOrdersReducer,getClientOrdersReducer, addOrdersReducer,updateOr
       ,addRatingsReducer} from './Reducers/ordersReducers'
 import {adminLoginReducer,adminGetUsers,adminGetLocations,adminGetServices} from './Reducers/AdminReducer'
 
+const userData = localStorage.getItem("userdata")?JSON.parse(localStorage.getItem("userdata")):null
+const adminData = localStorage.getItem("adminData")?JSON.parse(localStorage.getItem("adminData")):null
 
-const initialState = {}
+const initialState = {userSignIn:{userData},admin:{adminData}}
 
 const reducer = combineReducers({
    userSignIn: loginReducer,

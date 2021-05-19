@@ -18,6 +18,8 @@ const adminLogin = (email,password) => async (dispatch)=>{
         axios.get('/sanctum/csrf-cookie').then(async(response) => {
             const {data} = await Axios.post(`/api/adminlogin`,{email,password})
             dispatch({type:ADMIN_LOGIN_SUCCESS,payload:data.user})
+            localStorage.setItem("adminData",JSON.stringify(data.user))
+
         });
        
     }catch(err){
