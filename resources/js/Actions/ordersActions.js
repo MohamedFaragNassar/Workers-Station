@@ -10,7 +10,7 @@ import {GET_SELLER_ORDERS_FAIL,GET_SELLER_ORDERS_REQUEST,GET_SELLER_ORDERS_SUCCE
 const getSellerOrders = (id) => async (dispatch)=>{
     try{
         dispatch({type:GET_SELLER_ORDERS_REQUEST})
-        const {data} = await Axios.post(`/api/sellerorders/`,{id})
+        const {data} = await Axios.post(`/api/sellerorders`,{id})
         dispatch({type:GET_SELLER_ORDERS_SUCCESS,payload:data.orders})
     }catch(err){
         dispatch({type:GET_SELLER_ORDERS_FAIL,payload:err})
@@ -20,7 +20,7 @@ const getSellerOrders = (id) => async (dispatch)=>{
 const getClientOrders = (id) => async (dispatch)=>{
     try{
         dispatch({type:GET_CLIENT_ORDERS_REQUEST})
-        const {data} = await Axios.post(`/api/clientorders/`,{id})
+        const {data} = await Axios.post(`/api/clientorders`,{id})
         dispatch({type:GET_CLIENT_ORDERS_SUCCESS,payload:data.orders})
     }catch(err){
         dispatch({type:GET_CLIENT_ORDERS_FAIL,payload:err})
@@ -39,7 +39,7 @@ const addOrder = (service,seller_id,amount,client_id,start,image) => async (disp
         formData.append("start",start)
         formData.append("image",image)
         
-        const {data} = await Axios.post('/api/addorder/',formData)
+        const {data} = await Axios.post('/api/addorder',formData)
         dispatch({type:ADD_ORDER_SUCCESS,payload:data.order})
         dispatch({type:ADD_ORDER,payload:data.order})
     }catch(err){
@@ -50,7 +50,7 @@ const addOrder = (service,seller_id,amount,client_id,start,image) => async (disp
 const addRating = (id,value) => async (dispatch)=>{
     try{
         
-        const {data} = await Axios.post('/api/rating/',{id,value})
+        const {data} = await Axios.post('/api/rating',{id,value})
         if(data.success){
             dispatch({type:ADD_RATING_SUCCESS,payload:data})
         }else{
@@ -65,7 +65,7 @@ const addRating = (id,value) => async (dispatch)=>{
 const updateOrder = (id,status) => async (dispatch)=>{
     try{
         dispatch({type:UPDATE_ORDER_REQUEST})
-        const {data} = await Axios.post(`/api/updateorder/`,{id,status})
+        const {data} = await Axios.post(`/api/updateorder`,{id,status})
         dispatch({type:UPDATE_ORDER_SUCCESS,payload:data.order})
         dispatch({type:UPDATE_ORDER,payload:[id,status]})
    }catch(err){

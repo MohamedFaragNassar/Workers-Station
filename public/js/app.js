@@ -2503,7 +2503,7 @@ var adminLogin = function adminLogin(email, password) {
                         switch (_context.prev = _context.next) {
                           case 0:
                             _context.next = 2;
-                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/adminlogin/", {
+                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/adminlogin", {
                               email: email,
                               password: password
                             });
@@ -2570,7 +2570,7 @@ var addService = function addService(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.ADD_SERVICE_REQUEST
               });
               _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addservice/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addservice", {
                 name: name
               });
 
@@ -2625,7 +2625,7 @@ var deleteService = function deleteService(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_SERVICE_REQUEST
               });
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deleteservice/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deleteservice", {
                 name: name
               });
 
@@ -2679,7 +2679,7 @@ var updateService = function updateService(name, status) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.UPDATE_SERVICE_REQUEST
               });
               _context5.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateservice/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateservice", {
                 name: name,
                 status: status
               });
@@ -2734,7 +2734,7 @@ var addLocation = function addLocation(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.ADD_LOCATION_REQUEST
               });
               _context6.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addlocation/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addlocation", {
                 name: name
               });
 
@@ -2788,7 +2788,7 @@ var deleteLocation = function deleteLocation(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_LOCATION_REQUEST
               });
               _context7.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deletelocation/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deletelocation", {
                 name: name
               });
 
@@ -2842,7 +2842,7 @@ var deleteUser = function deleteUser(id, type) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_USER_REQUEST
               });
               _context8.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/".concat(type == "client" ? "deleteclient" : "deleteseller", "/"), {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/".concat(type == "client" ? "deleteclient" : "deleteseller"), {
                 id: id
               });
 
@@ -2896,7 +2896,7 @@ var getUsers = function getUsers(type) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.GET_USERS_REQUEST
               });
               _context9.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/".concat(type, "s/"));
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/".concat(type, "s"));
 
             case 4:
               _yield$Axios$get = _context9.sent;
@@ -2944,7 +2944,7 @@ var getServices = function getServices() {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.GET_ADMIN_SERVICES_REQUEST
               });
               _context10.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminservices/");
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminservices");
 
             case 4:
               _yield$Axios$get2 = _context10.sent;
@@ -2992,7 +2992,7 @@ var getLocations = function getLocations() {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.GET_ADMIN_LOCATION_REQUEST
               });
               _context11.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminlocations/");
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminlocations");
 
             case 4:
               _yield$Axios$get3 = _context11.sent;
@@ -3073,7 +3073,7 @@ var getSellerOrders = function getSellerOrders(id) {
                 type: _Constants_ordersConstants__WEBPACK_IMPORTED_MODULE_2__.GET_SELLER_ORDERS_REQUEST
               });
               _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerorders/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerorders", {
                 id: id
               });
 
@@ -3123,7 +3123,7 @@ var getClientOrders = function getClientOrders(id) {
                 type: _Constants_ordersConstants__WEBPACK_IMPORTED_MODULE_2__.GET_CLIENT_ORDERS_REQUEST
               });
               _context2.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/clientorders/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/clientorders", {
                 id: id
               });
 
@@ -3180,7 +3180,7 @@ var addOrder = function addOrder(service, seller_id, amount, client_id, start, i
               formData.append("start", start);
               formData.append("image", image);
               _context3.next = 11;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/addorder/', formData);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/addorder', formData);
 
             case 11:
               _yield$Axios$post3 = _context3.sent;
@@ -3229,7 +3229,7 @@ var addRating = function addRating(id, value) {
             case 0:
               _context4.prev = 0;
               _context4.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/rating/', {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/rating', {
                 id: id,
                 value: value
               });
@@ -3289,7 +3289,7 @@ var updateOrder = function updateOrder(id, status) {
                 type: _Constants_ordersConstants__WEBPACK_IMPORTED_MODULE_2__.UPDATE_ORDER_REQUEST
               });
               _context5.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/updateorder/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/updateorder", {
                 id: id,
                 status: status
               });
@@ -3621,7 +3621,7 @@ var getSellerServing = function getSellerServing(id) {
                 type: _Constants_servicesConstants__WEBPACK_IMPORTED_MODULE_2__.GET_SELLER_SERVING_REQUEST
               });
               _context5.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerserving/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerserving", {
                 id: id
               });
 
@@ -3671,7 +3671,7 @@ var deleteService = function deleteService(id, service) {
               });
               _context6.prev = 1;
               _context6.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/deleteserving/', {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/deleteserving', {
                 id: id,
                 service: service
               });
@@ -3726,7 +3726,7 @@ var getOneServing = function getOneServing(id, service) {
                 type: _Constants_servicesConstants__WEBPACK_IMPORTED_MODULE_2__.GET_ONE_SERVICE_REQUEST
               });
               _context7.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/offer/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/offer", {
                 id: id,
                 service: service
               });
@@ -3873,7 +3873,7 @@ var getByService = function getByService(service) {
                 type: _Constants_servicesConstants__WEBPACK_IMPORTED_MODULE_2__.GET_BY_SERVICE_REQUEST
               });
               _context10.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/service/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/service", {
                 service: service
               });
 
@@ -4262,7 +4262,7 @@ var getProfile = function getProfile(id, type) {
               }
 
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/client/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/client", {
                 id: id
               });
 
@@ -4283,7 +4283,7 @@ var getProfile = function getProfile(id, type) {
               }
 
               _context4.next = 13;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/seller/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/seller", {
                 id: id
               });
 
@@ -4341,7 +4341,7 @@ var updateProfile = function updateProfile(first_name, last_name, email, phone, 
               }
 
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateseller/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateseller", {
                 id: id,
                 first_name: first_name,
                 last_name: last_name,
@@ -4373,7 +4373,7 @@ var updateProfile = function updateProfile(first_name, last_name, email, phone, 
               }
 
               _context5.next = 15;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateclient/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateclient", {
                 id: id,
                 first_name: first_name,
                 last_name: last_name,
