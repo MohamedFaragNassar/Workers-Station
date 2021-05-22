@@ -2516,8 +2516,9 @@ var adminLogin = function adminLogin(email, password) {
                               payload: data.user
                             });
                             localStorage.setItem("adminData", JSON.stringify(data.user));
+                            window.location.href = "/admin/services";
 
-                          case 6:
+                          case 7:
                           case "end":
                             return _context.stop();
                         }
@@ -7011,7 +7012,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Spinner */ "./resources/js/components/Spinner.js");
 /* harmony import */ var _Status__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Status */ "./resources/js/components/Status.js");
 /* harmony import */ var _Actions_AdminActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Actions/AdminActions */ "./resources/js/Actions/AdminActions.js");
@@ -7063,19 +7063,11 @@ var AdminLogIn = function AdminLogIn() {
       error = _useSelector.error,
       adminData = _useSelector.adminData;
 
-  console.log(adminData);
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
-
   var handleLogin = function handleLogin(e) {
     e.preventDefault();
     dispatch((0,_Actions_AdminActions__WEBPACK_IMPORTED_MODULE_4__.adminLogin)(email, password));
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (adminData) {
-      history.push("/admin/services");
-    }
-  }, [adminData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "fixed top-0 right-0 bottom-0 left-0 z-10 bg-white  "
@@ -10817,11 +10809,6 @@ var SignIn = function SignIn() {
       error = _useSelector.error,
       userData = _useSelector.userData;
 
-  var _useSelector2 = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.admin;
-  }),
-      adminData = _useSelector2.adminData;
-
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useHistory)();
 
   var handleLogin = function handleLogin(e) {
@@ -10844,7 +10831,7 @@ var SignIn = function SignIn() {
     if (userData) {
       history.push("/");
     }
-  }, [userData, adminData]);
+  }, [userData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
       className: "flex flex-col items-center justify-evenly w-full md:w-3/4 lg:w-1/3 h-auto mt-20 bg-white shadow-lg rounded-lg pb-10  pt-4 mx-auto",
@@ -12234,13 +12221,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var userData = localStorage.getItem("userdata") ? JSON.parse(localStorage.getItem("userdata")) : null;
-var adminData = localStorage.getItem("adminData") ? JSON.parse(localStorage.getItem("adminData")) : null;
 var initialState = {
   userSignIn: {
     userData: userData
-  },
-  admin: {
-    adminData: adminData
   }
 };
 var reducer = (0,redux__WEBPACK_IMPORTED_MODULE_5__.combineReducers)({

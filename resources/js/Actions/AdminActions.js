@@ -19,6 +19,7 @@ const adminLogin = (email,password) => async (dispatch)=>{
             const {data} = await Axios.post(`/adminlogin`,{email,password})
             dispatch({type:ADMIN_LOGIN_SUCCESS,payload:data.user})
             localStorage.setItem("adminData",JSON.stringify(data.user))
+            window.location.href = "/admin/services"
 
         });
        
