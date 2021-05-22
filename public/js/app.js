@@ -2503,7 +2503,7 @@ var adminLogin = function adminLogin(email, password) {
                         switch (_context.prev = _context.next) {
                           case 0:
                             _context.next = 2;
-                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/adminlogin", {
+                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/adminlogin", {
                               email: email,
                               password: password
                             });

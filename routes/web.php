@@ -21,7 +21,7 @@ Route::post("/api/createclient","Auth\RegisterController@createclient");
 
 //Route::post("/api/adminlogin","Auth\LoginController@adminLogin");
 Route::post('/adminlogin', [ 'as' => 'login', 'uses' => 'Auth\LoginController@adminLogin']);
-Route::post('/api/adminlogin', 'Auth\LoginController@adminLogin');
+//Route::post('/api/adminlogin', 'Auth\LoginController@adminLogin');
 
 
 Route::get("/api/clients","ClientsController@getAll")->middleware('auth:admin');
