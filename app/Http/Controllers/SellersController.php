@@ -23,10 +23,7 @@ class SellersController extends Controller
 
     public function getone(Request $request)
     {
-        if (!$request->secure() && App::environment() === 'production') {
-            return redirect()->secure($request->getRequestUri());
-        }
-
+        
         $orders = Order::leftJoin("ratings","orders.id","=","ratings.order_id")
         ->where("orders.seller_id", $request["id"])
         ->select("orders.id","ratings.value")

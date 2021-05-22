@@ -39,7 +39,7 @@ const Profile = ({profile,type}) => {
     }, [userData])
     
     return <>
-        {profile&&userData&&<div className="w-full  lg:w-1/3 shadow-lg rounded-md mt-12 lg:mt-20 p-5  bg-white relative">
+        {profile&&<div className="w-full  lg:w-1/3 shadow-lg rounded-md mt-12 lg:mt-20 p-5  bg-white relative">
             {userData?.id==profile.id?
             <button className="text-2xl text-gray-600 hover:text-gray-400 absolute top-2 right-2" onClick={()=>setIsOpen(true)}>
                 <i className="far fa-edit"></i>
@@ -48,7 +48,8 @@ const Profile = ({profile,type}) => {
                 <div className="relative">
                     <img src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/${folder}/${profile.id}.jpg`} 
                     className="w-32 h-32 rounded-full" />
-                   {userData?.id==profile.id? <><input id="image" type="file" onChange={(e)=>handleUploadPersonalImage(e)} className="hidden"/>
+                   {userData?.id==profile.id? <><input id="image" type="file" 
+                   onChange={(e)=>handleUploadPersonalImage(e)} className="hidden"/>
                     <label htmlFor="image" className=" text-2xl opacity-70 hover:opacity-100 cursor-pointer absolute center " >
                         <i className=" text-2xl op fal fa-camera-alt text-gray-300 font-bold"></i>
                     </label></>:null}

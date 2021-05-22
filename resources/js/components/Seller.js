@@ -39,7 +39,7 @@ const Seller = (props) => {
             <Status message={error.message} /> 
             </div>: profile ?
             <div className="min-h-screen flex flex-col lg:flex-row items-start justify-between">
-           {profile&& <Profile profile={profile.seller} type="seller" />}
+           {profile && <Profile profile={profile.seller} type="seller" />}
             <div className=" w-full lg:w-2/3 flex flex-col items-center mt-20" >
                 <div className="w-full ml-2 mb-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim" style={{height:height+"vh"}} >
                     {ordersLoading&&<Spinner />}

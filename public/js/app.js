@@ -7772,7 +7772,7 @@ var AllServices = function AllServices() {
                   children: "Top Rated Sellers"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                className: "flex items-center justify-start px-5",
+                className: "flex items-center justify-start flex-wrap gap-4 px-5",
                 children: (_cat$ = cat[1]) === null || _cat$ === void 0 ? void 0 : _cat$.map(function (ser) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ServiceCard__WEBPACK_IMPORTED_MODULE_1__.default, {
                     service: ser
@@ -9335,7 +9335,7 @@ var Profile = function Profile(_ref) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, [userData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [profile && userData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full  lg:w-1/3 shadow-lg rounded-md mt-12 lg:mt-20 p-5  bg-white relative",
       children: [(userData === null || userData === void 0 ? void 0 : userData.id) == profile.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
         className: "text-2xl text-gray-600 hover:text-gray-400 absolute top-2 right-2",
@@ -10832,6 +10832,7 @@ var SignIn = function SignIn() {
   var handleReadyLogin = function handleReadyLogin(type) {
     if (type == "admin") {
       dispatch((0,_Actions_AdminActions__WEBPACK_IMPORTED_MODULE_6__.adminLogin)("mfnemo666@yahoo.com", "12345678"));
+      window.location.href = "/admin/services";
     } else if (type == "client") {
       dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_2__.login)("mfnemo50500@yahoo.com", "12345678", "client"));
     } else {
@@ -10842,10 +10843,6 @@ var SignIn = function SignIn() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (userData) {
       history.push("/");
-    }
-
-    if (adminData) {
-      window.location.href = "/admin/services";
     }
   }, [userData, adminData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {

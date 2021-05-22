@@ -74,7 +74,7 @@ const AllServices = () => {
                                     <span className="ml-10 font-bold text-xl" >{cat[0]}</span>
                                     <span className="mr-10">Top Rated Sellers</span>
                                 </div>
-                                <div className="flex items-center justify-start px-5">
+                                <div className="flex items-center justify-start flex-wrap gap-4 px-5">
                                     {cat[1]?.map(ser => 
                                         <ServiceCard service={ser} key={ser.name} />
                                     )}

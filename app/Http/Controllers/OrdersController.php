@@ -26,10 +26,6 @@ class OrdersController extends Controller
 
     public function getbyseller(Request $request)
     {
-        if (!$request->secure() && App::environment() === 'production') {
-            return redirect()->secure($request->getRequestUri());
-        }
-
         $orders = Order::with("rating")->where("seller_id",$request["id"])->orderBy("date",'DESC')->get();
                         
         return response()->json(["orders" => $orders]);
