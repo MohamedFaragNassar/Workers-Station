@@ -31,7 +31,7 @@ const OrderItem = ({order}) => {
                 </div>
                 <div className="w-4/5 md:w-1/2 flex items-start justify-between text-sm md:text-l font-semibold">
                     <span>Total Price : </span>
-                    <span className="w-1/2 text-left">{`${order?.total_price} EGP `}</span>
+                    <span className="w-1/2 text-left">{`$${order?.total_price}`}</span>
                 </div>
                 <div className="w-2/3 md:w-1/2 lg:w-3/5 px-4 py-2 bg-yellow-200 rounded-lg flex items-center 
                     justify-between text-sm md:text-l font-normal">

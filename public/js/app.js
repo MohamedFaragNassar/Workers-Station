@@ -9098,7 +9098,7 @@ var OrderItem = function OrderItem(_ref) {
           children: "Total Price : "
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           className: "w-1/2 text-left",
-          children: "".concat(order === null || order === void 0 ? void 0 : order.total_price, " EGP")
+          children: "$".concat(order === null || order === void 0 ? void 0 : order.total_price)
         })]
       }), (order === null || order === void 0 ? void 0 : order.status) == "finished" && userData && (userData === null || userData === void 0 ? void 0 : userData.id) == id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "w-1/3 ",
@@ -9959,7 +9959,7 @@ var OrderItem = function OrderItem(_ref) {
           children: "Total Price : "
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
           className: "w-1/2 text-left",
-          children: "".concat(order === null || order === void 0 ? void 0 : order.total_price, " EGP ")
+          children: "$".concat(order === null || order === void 0 ? void 0 : order.total_price)
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "w-2/3 md:w-1/2 lg:w-3/5 px-4 py-2 bg-yellow-200 rounded-lg flex items-center \r justify-between text-sm md:text-l font-normal",
@@ -10700,7 +10700,7 @@ var SideMenu = function SideMenu() {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "fixed top-20 h-screen border-l-2 border-r-2 hidden lg:flex flex-col items-center \r bg-white shadow-lg rounded-lg",
+      className: "fixed top-20 h-screen border-l-2 border-r-2 hidden lg:flex flex-col items-center \r bg-white shadow-lg rounded-lg overflow-y-auto",
       style: {
         height: "86vh",
         width: 17 + "%"

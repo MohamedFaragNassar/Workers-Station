@@ -31,7 +31,7 @@ const OrderItem = ({order,id}) => {
                 </div>
                 <div className="w-4/5 md:w-1/2 flex items-start justify-between text-sm md:text-l font-semibold">
                     <span>Total Price : </span>
-                    <span className="w-1/2 text-left">{`${order?.total_price} EGP`}</span>
+                    <span className="w-1/2 text-left">{`$${order?.total_price}`}</span>
                 </div>
                 {order?.status=="finished"&&userData&&userData?.id==id&&<div className="w-1/3 " >
                    {<StarRating handler={handleRating} value={order?.rating[0]?.value || 0} />}

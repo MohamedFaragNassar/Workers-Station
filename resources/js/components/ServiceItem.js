@@ -25,7 +25,9 @@ const ServiceItem = ({service}) => {
                 <i className="fas fa-ellipsis-v"></i>
             </button>}
             <div className="w-full md:w-3/5 flex flex-col items-start justify-start h-full">
-                <Link to={`/service/${service?.seller_id}/${service?.service}`} className="font-bold text-2xl mb-2 " >{service?.service}</Link>
+                <Link to={`/service/${service?.seller_id}/${service?.service}`} className="font-bold text-2xl mb-2 " >
+                    {service?.service}
+                </Link>
                 <div className="text-left mb-.5 lg:mb-2">{service?.snippet}</div>
                 
                 <div className="w-full flex items-center justify-between md:justify-start mr-1 md:mr-2 mt-auto">
