@@ -5,7 +5,6 @@ use App\Models\Serving;
 use App\Models\Service;
 use App\Models\Order;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -95,28 +94,21 @@ class ServingController extends Controller
 
     public function create(Request $request)
     {
-        try{
-            $offer = Serving::create([
-                        "service"=>$request["service"],
-                        "seller_id"=>$request["seller_id"],
-                        "price"=>$request["price"],
-                        "snippet"=>$request["snippet"],
-                        "details"=>$request["details"],
-                        "discount"=>$request["discount"],
-                ]);
-            
-            $seller_id = $offer["seller_id"];
-            $service = $offer["service"];
-            $ser = str_replace(' ', '', $service);
-            $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$ser}");
-            dd($result);
-            return response()->json(["offer" => $offer]);
-
-        }catch(Exception $e){
-            dd($e);
-            return response()->json(["error" => $e]);
-
-        }
+        $offer = Serving::create([
+                    "service"=>$request["service"],
+                    "seller_id"=>$request["seller_id"],
+                    "price"=>$request["price"],
+                    "snippet"=>$request["snippet"],
+                    "details"=>$request["details"],
+                    "discount"=>$request["discount"],
+            ]);
+        
+        $seller_id = $offer["seller_id"];
+        $service = $offer["service"];
+        $ser = str_replace(' ', '', $service);
+        $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$ser}");
+         
+        return response()->json(["offer" => $offer]);
         
     }
     
