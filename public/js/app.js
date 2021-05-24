@@ -10637,7 +10637,7 @@ var ServicePage = function ServicePage(props) {
     }) : (services === null || services === void 0 ? void 0 : services.legnth) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full mb-5 min-h-screen",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "w-full h-12 text-white flex items-center justify-between rounded-lg shadow-md ",
+        className: "w-full h-12 text-white flex items-center justify-between rounded-lg shadow-md",
         style: {
           background: "#28abb9"
         },
