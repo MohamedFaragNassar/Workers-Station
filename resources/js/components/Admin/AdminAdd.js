@@ -20,7 +20,7 @@ const AdminAdd = ({close,type}) => {
    
     return <>
         <div className="fixed top-0 right-0 bottom-0 left-0 bg-gray-400 opacity-70 z-10  " ></div>
-        <form id="edit-profile"  className="w-5/6  center1 fixed  top-8 rounded-2xl pb-5
+        <form id="edit-profile"  className="w-5/6 lg:w-2/5 center1 fixed  top-8 rounded-2xl pb-5
           bg-white flex flex-col items-center justify-between py-2 z-20" >
             <div className="w-full mx-auto flex  items-center justify-between   mb-2 " >
                 <div className="flex  items-center justify-between ml-2">

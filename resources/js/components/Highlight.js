@@ -5,7 +5,7 @@ import Review from './Review'
 const Highlight = ({service}) => {
     
     return <>
-        <div className="w-full mx-auto h-80 flex items-center mb-5 shadow-lg rounded-lg">
+        {service&&<div className="w-full mx-auto h-80 flex items-center mb-5 shadow-lg rounded-lg">
             <div className="h-full  slider-content rounded-l-lg pl-14 flex flex-col items-start p-4">
                 <Link className="text-xl  max-h-20 tur font-semibold mb-2 w-full text-left text-green-800 focus:outline-none" 
                 to={`/service/${service.seller_id}/${service.service}`}>
@@ -27,7 +27,7 @@ const Highlight = ({service}) => {
             <div className=" h-full slider-img rounded-r-lg " 
             style={{backgroundImage: `url("https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service.seller_id}_${service.service}.jpg")`}} >
             </div>
-        </div>
+        </div>}
     </>
 }
 

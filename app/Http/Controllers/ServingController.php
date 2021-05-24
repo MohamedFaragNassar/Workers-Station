@@ -105,7 +105,8 @@ class ServingController extends Controller
         
         $seller_id = $offer["seller_id"];
         $service = $offer["service"];
-        $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$service}");
+        $ser = str_replace(' ', '', $service);
+        $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$ser}");
          
         return response()->json(["offer" => $offer]);
         

@@ -43,10 +43,10 @@ const AllServices = () => {
     useEffect(() => {
         let interval = null;
         interval = setInterval(() => {
-            if( highlightedServices && index < highlightedServices.length-1){
+            if( highlightedServices?.length > 1 && index < highlightedServices.length-1){
                 setIndex(index => index + 1);
             }else{
-                setIndex(1)
+                setIndex(0)
             }
         }, 5000);
         return () => clearInterval(interval);

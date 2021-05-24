@@ -48,9 +48,9 @@ const OrderItem = ({order}) => {
                <button onClick={()=>setIsOpen(true)}>Attached Image</button>
             </div>}
             <img className="hidden md:block w-2/5 h-full" 
-            src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${userData?.id}_${order?.service}.jpg`} />
+            src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${userData?.id}_${order?.service.replace(" ","")}`} />
             <OrderImage isOpen={isOpen} domNode={domNode}
-             image={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/${order?.image}.jpg`}/>
+             image={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/${order?.image}`}/>
             <OrderItemMenu order={order} isOpen={isMenuOpen} node={menuNode} close={()=>setIsMenuOpen(false)} />
         </div>
     )

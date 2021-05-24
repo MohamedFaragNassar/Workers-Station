@@ -6622,7 +6622,7 @@ var AdminAdd = function AdminAdd(_ref) {
       className: "fixed top-0 right-0 bottom-0 left-0 bg-gray-400 opacity-70 z-10  "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
       id: "edit-profile",
-      className: "w-5/6  center1 fixed  top-8 rounded-2xl pb-5\r bg-white flex flex-col items-center justify-between py-2 z-20",
+      className: "w-5/6 lg:w-2/5 center1 fixed  top-8 rounded-2xl pb-5\r bg-white flex flex-col items-center justify-between py-2 z-20",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "w-full mx-auto flex  items-center justify-between   mb-2 ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -7711,12 +7711,12 @@ var AllServices = function AllServices() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var interval = null;
     interval = setInterval(function () {
-      if (highlightedServices && index < highlightedServices.length - 1) {
+      if ((highlightedServices === null || highlightedServices === void 0 ? void 0 : highlightedServices.length) > 1 && index < highlightedServices.length - 1) {
         setIndex(function (index) {
           return index + 1;
         });
       } else {
-        setIndex(1);
+        setIndex(0);
       }
     }, 5000);
     return function () {
@@ -8845,7 +8845,7 @@ __webpack_require__.r(__webpack_exports__);
 var Highlight = function Highlight(_ref) {
   var service = _ref.service;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: service && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "w-full mx-auto h-80 flex items-center mb-5 shadow-lg rounded-lg",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "h-full  slider-content rounded-l-lg pl-14 flex flex-col items-start p-4",
@@ -9130,7 +9130,7 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
       className: "w-2/5 h-full hidden md:block",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service, ".jpg")
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(" ", ""))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
@@ -9994,11 +9994,11 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
       className: "hidden md:block w-2/5 h-full",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service, ".jpg")
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(" ", ""))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
-      image: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/".concat(order === null || order === void 0 ? void 0 : order.image, ".jpg")
+      image: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/".concat(order === null || order === void 0 ? void 0 : order.image)
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OrderItemMenu__WEBPACK_IMPORTED_MODULE_5__.default, {
       order: order,
       isOpen: isMenuOpen,
@@ -10227,7 +10227,7 @@ var Service = function Service(props) {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
               className: "w-1/2 mx-auto h-80 rounded-lg hidden lg:block",
-              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service, ".jpg")
+              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service.replace(" ", ""))
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0",
@@ -10326,7 +10326,7 @@ var ServiceCard = function ServiceCard(_ref) {
         className: "font-semibold text-2xl mb-2 ",
         children: service.service
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.id, "_").concat(service.service, ".jpg"),
+        src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.id, "_").concat(service.service.replace(" ", "")),
         className: "w-11/12 h-2/5 max-h-2/5 rounded-sm mx-auto"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-left p-2 max-h-24 ",
@@ -10467,8 +10467,8 @@ var ServiceItem = function ServiceItem(_ref) {
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-      className: "hidden md:block w-2/5 h-40",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service, ".jpg")
+      className: "hidden md:block max-w-2/5 h-40",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service.replace(" ", ""))
     }), isOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ServiceItemMenu__WEBPACK_IMPORTED_MODULE_2__.default, {
       node: domeNode,
       id: service === null || service === void 0 ? void 0 : service.seller_id,
