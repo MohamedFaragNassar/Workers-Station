@@ -109,7 +109,7 @@ class ServingController extends Controller
             $service = $offer["service"];
             $ser = str_replace(' ', '', $service);
             $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$ser}");
-             
+            dd($result);
             return response()->json(["offer" => $offer]);
 
         }catch(Exception $e){
