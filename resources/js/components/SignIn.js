@@ -27,7 +27,6 @@ const SignIn = () => {
     const handleReadyLogin = (type) => {
         if(type=="admin"){
             dispatch(adminLogin("mfnemo666@yahoo.com","12345678"))
-            window.location.href = "/admin/services"
         }else if(type=="client"){
             dispatch(login("mfnemo50500@yahoo.com","12345678","client"))
 

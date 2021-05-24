@@ -6382,10 +6382,10 @@ var AddService = function AddService(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex  items-center justify-between ml-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            className: "mx-2 text-lg",
+            className: "mx-2 text-lg focus:outline-none",
             onClick: close,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-              "class": "fal fa-times-circle"
+              className: "fal fa-times-circle"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: "font-bold text-xl",
@@ -6622,16 +6622,16 @@ var AdminAdd = function AdminAdd(_ref) {
       className: "fixed top-0 right-0 bottom-0 left-0 bg-gray-400 opacity-70 z-10  "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
       id: "edit-profile",
-      className: "w-5/6  lg:w-2/5 fixed  top-8 rounded-2xl pb-5\r bg-white flex flex-col items-center justify-between py-2 z-20",
+      className: "w-5/6  center1 fixed  top-8 rounded-2xl pb-5\r bg-white flex flex-col items-center justify-between py-2 z-20",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "w-full mx-auto flex  items-center justify-between   mb-2 ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex  items-center justify-between ml-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            className: "mx-2 text-lg",
+            className: "mx-2 text-lg focus:outline-none",
             onClick: close,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-              "class": "fal fa-times-circle"
+              className: "fal fa-times-circle"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: "font-bold text-xl",
@@ -7154,19 +7154,19 @@ var AdminMenu = function AdminMenu() {
         className: "flex flex-col items-center mt-5  w-full",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/services",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Services"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/locations",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Locations"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/sellers",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Sellers"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/clients",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Clients"
         })]
       })
@@ -10819,7 +10819,6 @@ var SignIn = function SignIn() {
   var handleReadyLogin = function handleReadyLogin(type) {
     if (type == "admin") {
       dispatch((0,_Actions_AdminActions__WEBPACK_IMPORTED_MODULE_6__.adminLogin)("mfnemo666@yahoo.com", "12345678"));
-      window.location.href = "/admin/services";
     } else if (type == "client") {
       dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_2__.login)("mfnemo50500@yahoo.com", "12345678", "client"));
     } else {

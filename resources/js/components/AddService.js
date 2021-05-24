@@ -47,7 +47,9 @@ const AddService = ({isOpen,close,seller_id}) => {
           bg-white flex flex-col items-center justify-between py-2 z-20" >
             <div className="w-full mx-auto flex  items-center justify-between   mb-2 " >
                 <div className="flex  items-center justify-between ml-2">
-                    <button className="mx-2 text-lg" onClick={close}><i class="fal fa-times-circle"></i></button>
+                    <button className="mx-2 text-lg focus:outline-none" onClick={close}>
+                        <i className="fal fa-times-circle"></i>
+                    </button>
                     <h1 className="font-bold text-xl">Add service</h1>
                 </div>
             </div>
