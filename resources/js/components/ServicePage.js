@@ -19,9 +19,9 @@ const ServicePage = (props) => {
                 <span className="ml-10 font-bold text-xl" >{srv}</span>
            </div>
             <div className="flex items-center justify-start gap-4 flex-wrap">
-                {services.map(service => 
+                {services?.legnth > 0 ? services.map(service => 
                     <ServiceCard service={service} />    
-                )}
+                ):<div className="w-full text-center mt-5">There is no offers for this service currently</div>}
             </div>
         </div>:null}
     </>

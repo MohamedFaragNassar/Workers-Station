@@ -77,7 +77,7 @@ const AddService = ({isOpen,close,seller_id}) => {
                      style={{resize:"none"}} onChange={(e)=>setDetails(e.target.value)}  />
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
-                    <span  className="absolute top-2 left-4" >Price (EGP/hr)</span>
+                    <span  className="absolute top-2 left-4" >Price ($/hr)</span>
                     <input required={true} type="number" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg 
                     focus:outline-none focus:border-blue-400"
                       onChange={(e)=>setPrice(e.target.value)}/>

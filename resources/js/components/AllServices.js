@@ -54,7 +54,7 @@ const AllServices = () => {
     
     return <>
         <div className="w-full">
-          <div className= "hidden md:block relative w-full lg:w-3/4 mx-auto">
+          {highlightedServices?.length > 0 && <div className= "hidden md:block relative w-full lg:w-3/4 mx-auto">
                 <button onClick={()=>handleNext()} 
                 className=" absolute left-0 h-full rounded-l-lg w-10 bg-gray-100 bg-opacity-50 hover:bg-opacity-80 focus:outline-none ">
                     {"<"}
@@ -64,7 +64,7 @@ const AllServices = () => {
                 className=" absolute right-0 top-0 rounded-r-lg h-full w-10 bg-gray-100 bg-opacity-50 hover:bg-opacity-80 focus:outline-none">
                     {">"}
                 </button>
-            </div>
+            </div>}
             <div className="flex items-center flex-wrap justify-between w-full" >
                 {data?.map(cat => {
                     if(cat[1].length > 0){

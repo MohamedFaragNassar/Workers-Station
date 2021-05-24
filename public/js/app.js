@@ -6446,7 +6446,7 @@ var AddService = function AddService(_ref) {
           className: "w-11/12 relative  mb-2 mx-auto",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "absolute top-2 left-4",
-            children: "Price (EGP/hr)"
+            children: "Price ($/hr)"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             required: true,
             type: "number",
@@ -7726,7 +7726,7 @@ var AllServices = function AllServices() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [(highlightedServices === null || highlightedServices === void 0 ? void 0 : highlightedServices.length) > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "hidden md:block relative w-full lg:w-3/4 mx-auto",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
           onClick: function onClick() {
@@ -10647,10 +10647,13 @@ var ServicePage = function ServicePage(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "flex items-center justify-start gap-4 flex-wrap",
-        children: services.map(function (service) {
+        children: (services === null || services === void 0 ? void 0 : services.legnth) > 0 ? services.map(function (service) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ServiceCard__WEBPACK_IMPORTED_MODULE_2__.default, {
             service: service
           });
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+          className: "w-full text-center mt-5",
+          children: "There is no offers for this service currently"
         })
       })]
     }) : null
@@ -10695,7 +10698,6 @@ var SideMenu = function SideMenu() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_Actions_servicesActions__WEBPACK_IMPORTED_MODULE_2__.getServices)());
   }, []);
-  console.log(services);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "fixed top-20 h-screen border-l-2 border-r-2 hidden lg:flex flex-col items-center \r bg-white shadow-lg rounded-lg",
@@ -10718,7 +10720,7 @@ var SideMenu = function SideMenu() {
           to: "/main",
           className: "focus:outline-none text-lg font-semibold px-8 py-4\r hover:bg-gray-200 rounded-full",
           children: "Top Rated"
-        }), services.map(function (service) {
+        }), services === null || services === void 0 ? void 0 : services.map(function (service) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             className: "text-lg font-semibold px-8  py-4 hover:bg-gray-200 rounded-full focus:outline-none",
             to: "/main/service/".concat(service.name),
