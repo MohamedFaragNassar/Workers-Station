@@ -10630,11 +10630,9 @@ var ServicePage = function ServicePage(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_Actions_servicesActions__WEBPACK_IMPORTED_MODULE_3__.getByService)(srv));
   }, [srv]);
+  console.log(services);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_4__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_5__.default, {
-      status: "fail",
-      message: error
-    }) : (services === null || services === void 0 ? void 0 : services.legnth) > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full mb-5 min-h-screen",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "w-full h-12 text-white flex items-center justify-between rounded-lg shadow-md",
@@ -10645,7 +10643,10 @@ var ServicePage = function ServicePage(props) {
           className: "ml-10 font-bold text-xl",
           children: srv
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_4__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_5__.default, {
+        status: "fail",
+        message: error
+      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "flex items-center justify-start gap-4 flex-wrap",
         children: services === null || services === void 0 ? void 0 : services.map(function (service) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ServiceCard__WEBPACK_IMPORTED_MODULE_2__.default, {
@@ -10653,9 +10654,6 @@ var ServicePage = function ServicePage(props) {
           });
         })
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      className: "w-full text-center mt-5",
-      children: "There is no offers for this service currently"
     })
   });
 };

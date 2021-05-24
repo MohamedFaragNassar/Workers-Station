@@ -11,20 +11,20 @@ const ServicePage = (props) => {
     useEffect(() => {
        dispatch(getByService(srv))
     }, [srv])
-   
+   console.log(services)
    return <>
-        { loading?<Spinner /> :error? <Status status="fail" message={error} /> :services?.legnth > 0 ? 
         <div className="w-full mb-5 min-h-screen">
             <div className="w-full h-12 text-white flex items-center justify-between rounded-lg shadow-md"
             style={{background:"#28abb9"}}>
                 <span className="ml-10 font-bold text-xl" >{srv}</span>
            </div>
+            { loading?<Spinner /> :error? <Status status="fail" message={error} /> :null}
             <div className="flex items-center justify-start gap-4 flex-wrap">
                 {services?.map(service => 
                     <ServiceCard service={service} />    
                 )}
             </div>
-        </div>:<div className="w-full text-center mt-5">There is no offers for this service currently</div>}
+        </div>
     </>
 }
 
