@@ -113,6 +113,7 @@ class ServingController extends Controller
             return response()->json(["offer" => $offer]);
 
         }catch(Exception $e){
+            dd($e);
             return response()->json(["error" => $e]);
 
         }
