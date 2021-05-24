@@ -12,7 +12,7 @@ const SideMenu = () => {
     }, [])
     return <>
         <div className="fixed top-20 h-screen border-l-2 border-r-2 hidden lg:flex flex-col items-center 
-         bg-white shadow-lg rounded-lg" style={{height:"86vh",width:17+"%"}}>
+         bg-white shadow-lg rounded-lg overflow-y-auto" style={{height:"86vh",width:17+"%"}}>
             <div className="flex items-center mt-5">
                 <img src="desktop.svg" className="w-6 mr-2 h-6" />
                 <h1 className="text-xl font-bold">All Services</h1>
