@@ -12,7 +12,7 @@
     <title>Workers Station</title>
 
     <!-- styles -->
-    <link href="{{secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{secure_asset('css/app.css') }}" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div id="root"></div>
