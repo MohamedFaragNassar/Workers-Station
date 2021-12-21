@@ -6243,7 +6243,7 @@ var AddOrder = function AddOrder(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             required: true,
             type: "file",
-            className: "w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+            className: "w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
             onChange: function onChange(e) {
               return getImage(e);
             }
@@ -6476,7 +6476,7 @@ var AddService = function AddService(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             required: true,
             type: "file",
-            className: "w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg \r focus:border-blue-400 focus:outline-none",
+            className: "w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg \r focus:border-blue-400 focus:outline-none",
             onChange: function onChange(e) {
               return getImage(e);
             }
@@ -8880,7 +8880,7 @@ var Highlight = function Highlight(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: " h-full slider-img rounded-r-lg ",
         style: {
-          backgroundImage: "url(\"https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.seller_id, "_").concat(service.service, ".jpg\")")
+          backgroundImage: "url(\"https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.seller_id, "_").concat(service.service.replace(/\s/g, ''), ".jpg\")")
         }
       })]
     })
@@ -9107,9 +9107,9 @@ var OrderItem = function OrderItem(_ref) {
           value: (order === null || order === void 0 ? void 0 : (_order$rating$ = order.rating[0]) === null || _order$rating$ === void 0 ? void 0 : _order$rating$.value) || 0
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "w-3/5 lg:w-1/3 px-4 py-2 bg-yellow-200 rounded-lg flex items-center \r justify-between text-sm md:text-l font-normal",
+        className: "w-3/5 lg:w-2/5 px-4 py-2 bg-yellow-200 rounded-lg flex items-center \r justify-between text-sm md:text-l font-normal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
-          className: "far fa-calendar-alt"
+          className: "far fa-calendar-alt mr-2"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: moment__WEBPACK_IMPORTED_MODULE_1___default()(order === null || order === void 0 ? void 0 : order.starts_at).format('MMMM Do YYYY')
         })]
@@ -9130,7 +9130,7 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
       className: "w-2/5 h-full hidden md:block",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(" ", ""))
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
@@ -9994,7 +9994,7 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
       className: "hidden md:block w-2/5 h-full",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(" ", ""))
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
@@ -10146,7 +10146,10 @@ var Service = function Service(props) {
     dispatch((0,_Actions_ordersActions__WEBPACK_IMPORTED_MODULE_5__.getClientOrders)(userData === null || userData === void 0 ? void 0 : userData.id));
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_6__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      className: "w-full mt-16",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_6__.default, {})
+    }) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "w-full pt-16",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_7__.default, {})
     }) : serving && profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -10227,7 +10230,7 @@ var Service = function Service(props) {
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
               className: "w-1/2 mx-auto h-80 rounded-lg hidden lg:block",
-              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service.replace(" ", ""))
+              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service.replace(/\s/g, ''))
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0",
@@ -10326,7 +10329,7 @@ var ServiceCard = function ServiceCard(_ref) {
         className: "font-semibold text-2xl mb-2 ",
         children: service.service
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.id, "_").concat(service.service.replace(" ", "")),
+        src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.id, "_").concat(service.service.replace(/\s/g, '')),
         className: "w-11/12 h-2/5 max-h-2/5 rounded-sm mx-auto"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-left p-2 max-h-24 ",
@@ -10468,7 +10471,7 @@ var ServiceItem = function ServiceItem(_ref) {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
       className: "hidden md:block max-w-2/5 h-40",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service.replace(" ", ""))
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service.replace(/\s/g, ''))
     }), isOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ServiceItemMenu__WEBPACK_IMPORTED_MODULE_2__.default, {
       node: domeNode,
       id: service === null || service === void 0 ? void 0 : service.seller_id,

@@ -31855,6 +31855,10 @@ video {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+body{
+  background-color: #f8f7f7;
+}
+
 .center{
   top: 50%;
   left: 50%;

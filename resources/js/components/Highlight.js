@@ -25,7 +25,7 @@ const Highlight = ({service}) => {
                 <Review color="#11698e" size={25} value={service.val} />
             </div>
             <div className=" h-full slider-img rounded-r-lg " 
-            style={{backgroundImage: `url("https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service.seller_id}_${service.service}.jpg")`}} >
+            style={{backgroundImage: `url("https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service.seller_id}_${service.service.replace(/\s/g, '')}.jpg")`}} >
             </div>
         </div>}
     </>

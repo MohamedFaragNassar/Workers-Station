@@ -45,7 +45,7 @@ const ServiceItem = ({service}) => {
                 
             </div>
             <img className="hidden md:block max-w-2/5 h-40"
-             src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service?.seller_id}_${service?.service.replace(" ","")}`} />
+             src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service?.seller_id}_${service?.service.replace(/\s/g, '')}`} />
             {isOpen && <ServiceItemMenu node={domeNode} id={service?.seller_id} service={service?.service} openEdit={()=>setIsUpdateOpen(true)} close={()=>setIsOpen(false)} /> }
             {userData?.id==service?.seller_id&&isUpdateOpen&&<UpdateService service={service} isOpen={isUpdateOpen} close={()=>setIsUpdateOpen(false)} />}
         </div>

@@ -90,7 +90,7 @@ const AddService = ({isOpen,close,seller_id}) => {
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Image</span>
-                    <input required={true} type="file" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg 
+                    <input required={true} type="file" className="w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg 
                     focus:border-blue-400 focus:outline-none"
                       onChange={(e)=>getImage(e)}/>
                 </div>

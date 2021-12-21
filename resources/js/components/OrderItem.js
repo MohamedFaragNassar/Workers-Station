@@ -36,9 +36,9 @@ const OrderItem = ({order,id}) => {
                 {order?.status=="finished"&&userData&&userData?.id==id&&<div className="w-1/3 " >
                    {<StarRating handler={handleRating} value={order?.rating[0]?.value || 0} />}
                 </div>}
-                <div className="w-3/5 lg:w-1/3 px-4 py-2 bg-yellow-200 rounded-lg flex items-center 
+                <div className="w-3/5 lg:w-2/5 px-4 py-2 bg-yellow-200 rounded-lg flex items-center 
                 justify-between text-sm md:text-l font-normal">
-                    <i className="far fa-calendar-alt"></i>
+                    <i className="far fa-calendar-alt mr-2"></i>
                     <span>{moment(order?.starts_at).format('MMMM Do YYYY')}</span>
                 </div>
             </div>
@@ -49,7 +49,7 @@ const OrderItem = ({order,id}) => {
                <button className="focus:outline-none" onClick={()=>setIsOpen(true)}>Attached Image</button>
             </div>}
             <img className="w-2/5 h-full hidden md:block" 
-            src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${order?.seller_id}_${order?.service.replace(" ","")}`} />
+            src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${order?.seller_id}_${order?.service.replace(/\s/g, '')}`} />
             <OrderImage isOpen={isOpen} domNode={domNode} 
             image={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/${order?.image}.jpg`} />
         </div>

@@ -54,7 +54,8 @@ const Service = (props) => {
     }, [])
 
     return <>
-        {loading?<Spinner/>:error?<div className="w-full pt-16" ><Status/></div>:serving&&profile?
+    {loading?<div className='w-full mt-16'><Spinner/></div>
+        :error?<div className="w-full pt-16" ><Status/></div>:serving&&profile?
         <div className="w-full shadow-lg rounded-lg p-5 bg-white mt-16 change-height ">
             {addOrderLoading&& <Spinner/>}
             {addOrderError&&<Status message={addOrderError.message} status="fail" />}
@@ -96,7 +97,7 @@ const Service = (props) => {
                             <div className="text-left text-base lg:text-lg">{serving.offer.details}</div>
                         </div>
                         <img className="w-1/2 mx-auto h-80 rounded-lg hidden lg:block"
-                        src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${id}_${service.replace(" ","")}`}/> 
+                        src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${id}_${service.replace(/\s/g, '')}`}/> 
                         
                    </div>
                    <div className="flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0">

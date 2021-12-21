@@ -25,6 +25,9 @@ li {
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background-color: #f8f7f7;
+}
 
 .center{
   top: 50%;

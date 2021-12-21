@@ -63,7 +63,7 @@ const AddOrder = ({isOpen,close,service,seller}) => {
                 </div>
                <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Image</span>
-                    <input required={true} type="file" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
+                    <input required={true} type="file" className="w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400"
                       onChange={(e)=>getImage(e)}/>
                 </div>
                 <button type="submit" onClick={(e)=>handleAddOrder(e)} className="px-4 py-2 mt-2 bg-gray-600 text-white rounded-md hover:bg-gray-500" disabled={service==null} >
