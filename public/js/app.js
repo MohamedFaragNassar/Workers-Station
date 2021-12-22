@@ -8202,7 +8202,7 @@ var EditProfile = function EditProfile(_ref) {
           onClick: function onClick(e) {
             return handleUpdateProfile(e);
           },
-          className: "px-6 py-1 border  rounded-lg mr-8\r text-white bg-gray-600 text-lg font-semibold hover:bg-blue-500 ",
+          className: "px-6 py-1 border  rounded-lg mr-8\r text-white bg-gray-600 text-lg font-semibold hover:bg-gray-500  ",
           children: "Save"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -9130,7 +9130,8 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
       className: "w-2/5 h-full hidden md:block",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
+      alt: "service image",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929\n            /services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
@@ -9994,7 +9995,8 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
       className: "hidden md:block w-2/5 h-full",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
+      alt: "service image",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929\n            /services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
@@ -10471,7 +10473,8 @@ var ServiceItem = function ServiceItem(_ref) {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
       className: "hidden md:block max-w-2/5 h-40",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service.replace(/\s/g, ''))
+      alt: "service image",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929\n                /services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service.replace(/\s/g, ''))
     }), isOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ServiceItemMenu__WEBPACK_IMPORTED_MODULE_2__.default, {
       node: domeNode,
       id: service === null || service === void 0 ? void 0 : service.seller_id,
@@ -11445,6 +11448,7 @@ var SignedUser = function SignedUser() {
         className: "flex items-center hover:bg-gray-600 px-2 py-1 lg-px-4 lg:py-2 rounded-lg cursor-pointer ",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           className: "w-10 h-10 rounded-full",
+          alt: "profile",
           src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/".concat(folder, "/").concat(userData.id, ".jpg")
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: "ml-1 md:ml-2 text-white text-sm md:text-lg lg:text-xl truncate",

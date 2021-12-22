@@ -53,7 +53,7 @@ const EditProfile = ({isOpen,close,domNode,user}) => {
                 </div>
                 <button  onClick={(e)=>handleUpdateProfile(e)}
                     className="px-6 py-1 border  rounded-lg mr-8
-                    text-white bg-gray-600 text-lg font-semibold hover:bg-blue-500 ">
+                    text-white bg-gray-600 text-lg font-semibold hover:bg-gray-500  ">
                          Save
                 </button>
             </div>

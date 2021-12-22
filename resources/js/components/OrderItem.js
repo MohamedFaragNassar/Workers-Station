@@ -48,8 +48,9 @@ const OrderItem = ({order,id}) => {
             {order?.image&&<div className="absolute top-36  flex items-end re-position" >
                <button className="focus:outline-none" onClick={()=>setIsOpen(true)}>Attached Image</button>
             </div>}
-            <img className="w-2/5 h-full hidden md:block" 
-            src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${order?.seller_id}_${order?.service.replace(/\s/g, '')}`} />
+            <img className="w-2/5 h-full hidden md:block" alt='service image'
+            src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929
+            /services/${order?.seller_id}_${order?.service.replace(/\s/g, '')}`} />
             <OrderImage isOpen={isOpen} domNode={domNode} 
             image={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/${order?.image}.jpg`} />
         </div>

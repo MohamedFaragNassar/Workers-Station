@@ -21,7 +21,7 @@ const SignedUser = () => {
     return <>
        {userData && <div className="mr-1 md:mr-4 w-1/2 md:w-max lg:mr-10 relative" onClick={()=>setIsOpen(!isOpen)}>
             <div className="flex items-center hover:bg-gray-600 px-2 py-1 lg-px-4 lg:py-2 rounded-lg cursor-pointer ">
-                <img className="w-10 h-10 rounded-full" 
+                <img className="w-10 h-10 rounded-full" alt='profile'
                 src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/${folder}/${userData.id}.jpg`} />
                 <span className="ml-1 md:ml-2 text-white text-sm md:text-lg lg:text-xl truncate">
                     {`${userData.first_name} ${userData.last_name}`}

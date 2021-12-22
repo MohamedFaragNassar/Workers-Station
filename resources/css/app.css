@@ -80,6 +80,14 @@ body{
   transition: all linear 0.5s;
 }
 
+button , a{
+  outline: none;
+}
+
+button:focus,a:focus{
+  outline: none;
+}
+
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: rotate(0deg);
