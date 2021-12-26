@@ -2503,7 +2503,7 @@ var adminLogin = function adminLogin(email, password) {
                         switch (_context.prev = _context.next) {
                           case 0:
                             _context.next = 2;
-                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/adminlogin/", {
+                            return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/adminlogin", {
                               email: email,
                               password: password
                             });
@@ -2515,8 +2515,10 @@ var adminLogin = function adminLogin(email, password) {
                               type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.ADMIN_LOGIN_SUCCESS,
                               payload: data.user
                             });
+                            localStorage.setItem("adminData", JSON.stringify(data.user));
+                            window.location.href = "/admin/services";
 
-                          case 5:
+                          case 7:
                           case "end":
                             return _context.stop();
                         }
@@ -2570,7 +2572,7 @@ var addService = function addService(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.ADD_SERVICE_REQUEST
               });
               _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addservice/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addservice", {
                 name: name
               });
 
@@ -2625,7 +2627,7 @@ var deleteService = function deleteService(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_SERVICE_REQUEST
               });
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deleteservice/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deleteservice", {
                 name: name
               });
 
@@ -2679,7 +2681,7 @@ var updateService = function updateService(name, status) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.UPDATE_SERVICE_REQUEST
               });
               _context5.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateservice/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateservice", {
                 name: name,
                 status: status
               });
@@ -2734,7 +2736,7 @@ var addLocation = function addLocation(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.ADD_LOCATION_REQUEST
               });
               _context6.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addlocation/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/addlocation", {
                 name: name
               });
 
@@ -2788,7 +2790,7 @@ var deleteLocation = function deleteLocation(name) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_LOCATION_REQUEST
               });
               _context7.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deletelocation/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/deletelocation", {
                 name: name
               });
 
@@ -2842,7 +2844,7 @@ var deleteUser = function deleteUser(id, type) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.DELETE_USER_REQUEST
               });
               _context8.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/".concat(type == "client" ? "deleteclient" : "deleteseller", "/"), {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/".concat(type == "client" ? "deleteclient" : "deleteseller"), {
                 id: id
               });
 
@@ -2896,7 +2898,7 @@ var getUsers = function getUsers(type) {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.GET_USERS_REQUEST
               });
               _context9.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/".concat(type, "s/"));
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/".concat(type, "s"));
 
             case 4:
               _yield$Axios$get = _context9.sent;
@@ -2944,7 +2946,7 @@ var getServices = function getServices() {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.GET_ADMIN_SERVICES_REQUEST
               });
               _context10.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminservices/");
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminservices");
 
             case 4:
               _yield$Axios$get2 = _context10.sent;
@@ -2992,7 +2994,7 @@ var getLocations = function getLocations() {
                 type: _Constants_AdminConstants__WEBPACK_IMPORTED_MODULE_1__.GET_ADMIN_LOCATION_REQUEST
               });
               _context11.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminlocations/");
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/adminlocations");
 
             case 4:
               _yield$Axios$get3 = _context11.sent;
@@ -3073,7 +3075,7 @@ var getSellerOrders = function getSellerOrders(id) {
                 type: _Constants_ordersConstants__WEBPACK_IMPORTED_MODULE_2__.GET_SELLER_ORDERS_REQUEST
               });
               _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerorders/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerorders", {
                 id: id
               });
 
@@ -3123,7 +3125,7 @@ var getClientOrders = function getClientOrders(id) {
                 type: _Constants_ordersConstants__WEBPACK_IMPORTED_MODULE_2__.GET_CLIENT_ORDERS_REQUEST
               });
               _context2.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/clientorders/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/clientorders", {
                 id: id
               });
 
@@ -3180,7 +3182,7 @@ var addOrder = function addOrder(service, seller_id, amount, client_id, start, i
               formData.append("start", start);
               formData.append("image", image);
               _context3.next = 11;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/addorder/', formData);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/addorder', formData);
 
             case 11:
               _yield$Axios$post3 = _context3.sent;
@@ -3229,7 +3231,7 @@ var addRating = function addRating(id, value) {
             case 0:
               _context4.prev = 0;
               _context4.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/rating/', {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/rating', {
                 id: id,
                 value: value
               });
@@ -3289,7 +3291,7 @@ var updateOrder = function updateOrder(id, status) {
                 type: _Constants_ordersConstants__WEBPACK_IMPORTED_MODULE_2__.UPDATE_ORDER_REQUEST
               });
               _context5.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/updateorder/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/updateorder", {
                 id: id,
                 status: status
               });
@@ -3621,7 +3623,7 @@ var getSellerServing = function getSellerServing(id) {
                 type: _Constants_servicesConstants__WEBPACK_IMPORTED_MODULE_2__.GET_SELLER_SERVING_REQUEST
               });
               _context5.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerserving/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/sellerserving", {
                 id: id
               });
 
@@ -3671,7 +3673,7 @@ var deleteService = function deleteService(id, service) {
               });
               _context6.prev = 1;
               _context6.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/deleteserving/', {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/deleteserving', {
                 id: id,
                 service: service
               });
@@ -3726,7 +3728,7 @@ var getOneServing = function getOneServing(id, service) {
                 type: _Constants_servicesConstants__WEBPACK_IMPORTED_MODULE_2__.GET_ONE_SERVICE_REQUEST
               });
               _context7.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/offer/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/offer", {
                 id: id,
                 service: service
               });
@@ -3873,7 +3875,7 @@ var getByService = function getByService(service) {
                 type: _Constants_servicesConstants__WEBPACK_IMPORTED_MODULE_2__.GET_BY_SERVICE_REQUEST
               });
               _context10.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/service/", {
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/service", {
                 service: service
               });
 
@@ -4011,7 +4013,7 @@ var login = function login(email, password, type) {
             switch (_context.prev = _context.next) {
               case 0:
                 if (!(type == "seller")) {
-                  _context.next = 15;
+                  _context.next = 16;
                   break;
                 }
 
@@ -4029,12 +4031,13 @@ var login = function login(email, password, type) {
                   type: _Constants_userConstants__WEBPACK_IMPORTED_MODULE_1__.USER_LOGIN_SUCCESS,
                   payload: data.user
                 });
+                localStorage.setItem("userdata", JSON.stringify(data.user));
                 localStorage.setItem("type", type);
-                _context.next = 13;
+                _context.next = 14;
                 break;
 
-              case 10:
-                _context.prev = 10;
+              case 11:
+                _context.prev = 11;
                 _context.t0 = _context["catch"](1);
 
                 if (_context.t0.message == "Request failed with status code 400") {
@@ -4049,37 +4052,38 @@ var login = function login(email, password, type) {
                   });
                 }
 
-              case 13:
-                _context.next = 28;
+              case 14:
+                _context.next = 30;
                 break;
 
-              case 15:
+              case 16:
                 if (!(type == "client")) {
-                  _context.next = 28;
+                  _context.next = 30;
                   break;
                 }
 
-                _context.prev = 16;
-                _context.next = 19;
+                _context.prev = 17;
+                _context.next = 20;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/clientlogin", {
                   email: email,
                   password: password
                 });
 
-              case 19:
+              case 20:
                 _yield$Axios$post2 = _context.sent;
                 _data = _yield$Axios$post2.data;
                 dispatch({
                   type: _Constants_userConstants__WEBPACK_IMPORTED_MODULE_1__.USER_LOGIN_SUCCESS,
                   payload: _data.user
                 });
+                localStorage.setItem("userdata", JSON.stringify(_data.user));
                 localStorage.setItem("type", type);
-                _context.next = 28;
+                _context.next = 30;
                 break;
 
-              case 25:
-                _context.prev = 25;
-                _context.t1 = _context["catch"](16);
+              case 27:
+                _context.prev = 27;
+                _context.t1 = _context["catch"](17);
 
                 if (_context.t1.message == "Request failed with status code 400") {
                   dispatch({
@@ -4093,12 +4097,12 @@ var login = function login(email, password, type) {
                   });
                 }
 
-              case 28:
+              case 30:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 10], [16, 25]]);
+        }, _callee, null, [[1, 11], [17, 27]]);
       }));
 
       return function (_x) {
@@ -4262,7 +4266,7 @@ var getProfile = function getProfile(id, type) {
               }
 
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/client/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/client", {
                 id: id
               });
 
@@ -4283,7 +4287,7 @@ var getProfile = function getProfile(id, type) {
               }
 
               _context4.next = 13;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/seller/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/seller", {
                 id: id
               });
 
@@ -4336,12 +4340,12 @@ var updateProfile = function updateProfile(first_name, last_name, email, phone, 
               _context5.prev = 1;
 
               if (!(type == "seller")) {
-                _context5.next = 12;
+                _context5.next = 11;
                 break;
               }
 
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateseller/", {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateseller", {
                 id: id,
                 first_name: first_name,
                 last_name: last_name,
@@ -4362,18 +4366,17 @@ var updateProfile = function updateProfile(first_name, last_name, email, phone, 
                 type: _Constants_userConstants__WEBPACK_IMPORTED_MODULE_1__.USER_DETAILS_SUCCESS,
                 payload: data.seller
               });
-              localStorage.setItem("userdata", JSON.stringify(data.seller));
-              _context5.next = 20;
+              _context5.next = 18;
               break;
 
-            case 12:
+            case 11:
               if (!(type == "client")) {
-                _context5.next = 20;
+                _context5.next = 18;
                 break;
               }
 
-              _context5.next = 15;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateclient/", {
+              _context5.next = 14;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/updateclient", {
                 id: id,
                 first_name: first_name,
                 last_name: last_name,
@@ -4382,7 +4385,7 @@ var updateProfile = function updateProfile(first_name, last_name, email, phone, 
                 email: email
               });
 
-            case 15:
+            case 14:
               _yield$Axios$post8 = _context5.sent;
               _data4 = _yield$Axios$post8.data;
               dispatch({
@@ -4393,26 +4396,25 @@ var updateProfile = function updateProfile(first_name, last_name, email, phone, 
                 type: _Constants_userConstants__WEBPACK_IMPORTED_MODULE_1__.USER_DETAILS_SUCCESS,
                 payload: _data4.client
               });
-              localStorage.setItem("userdata", JSON.stringify(_data4.client));
 
-            case 20:
-              _context5.next = 25;
+            case 18:
+              _context5.next = 23;
               break;
 
-            case 22:
-              _context5.prev = 22;
+            case 20:
+              _context5.prev = 20;
               _context5.t0 = _context5["catch"](1);
               dispatch({
                 type: _Constants_userConstants__WEBPACK_IMPORTED_MODULE_1__.UPDATE_PROFILE_FAIL,
                 payload: _context5.t0.response.data[Object.keys(_context5.t0.response.data)[0]]
               });
 
-            case 25:
+            case 23:
             case "end":
               return _context5.stop();
           }
         }
-      }, _callee5, null, [[1, 22]]);
+      }, _callee5, null, [[1, 20]]);
     }));
 
     return function (_x5) {
@@ -6241,7 +6243,7 @@ var AddOrder = function AddOrder(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             required: true,
             type: "file",
-            className: "w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+            className: "w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
             onChange: function onChange(e) {
               return getImage(e);
             }
@@ -6380,10 +6382,10 @@ var AddService = function AddService(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex  items-center justify-between ml-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            className: "mx-2 text-lg",
+            className: "mx-2 text-lg focus:outline-none",
             onClick: close,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-              "class": "fal fa-times-circle"
+              className: "fal fa-times-circle"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: "font-bold text-xl",
@@ -6444,7 +6446,7 @@ var AddService = function AddService(_ref) {
           className: "w-11/12 relative  mb-2 mx-auto",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "absolute top-2 left-4",
-            children: "Price (EGP/hr)"
+            children: "Price ($/hr)"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             required: true,
             type: "number",
@@ -6474,7 +6476,7 @@ var AddService = function AddService(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             required: true,
             type: "file",
-            className: "w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg \r focus:border-blue-400 focus:outline-none",
+            className: "w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg \r focus:border-blue-400 focus:outline-none",
             onChange: function onChange(e) {
               return getImage(e);
             }
@@ -6620,16 +6622,16 @@ var AdminAdd = function AdminAdd(_ref) {
       className: "fixed top-0 right-0 bottom-0 left-0 bg-gray-400 opacity-70 z-10  "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
       id: "edit-profile",
-      className: "w-5/6  lg:w-2/5 fixed  top-8 rounded-2xl pb-5\r bg-white flex flex-col items-center justify-between py-2 z-20",
+      className: "w-5/6 lg:w-2/5 center1 fixed  top-8 rounded-2xl pb-5\r bg-white flex flex-col items-center justify-between py-2 z-20",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "w-full mx-auto flex  items-center justify-between   mb-2 ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex  items-center justify-between ml-2",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            className: "mx-2 text-lg",
+            className: "mx-2 text-lg focus:outline-none",
             onClick: close,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-              "class": "fal fa-times-circle"
+              className: "fal fa-times-circle"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
             className: "font-bold text-xl",
@@ -7010,7 +7012,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _Spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Spinner */ "./resources/js/components/Spinner.js");
 /* harmony import */ var _Status__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Status */ "./resources/js/components/Status.js");
 /* harmony import */ var _Actions_AdminActions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Actions/AdminActions */ "./resources/js/Actions/AdminActions.js");
@@ -7062,19 +7063,11 @@ var AdminLogIn = function AdminLogIn() {
       error = _useSelector.error,
       adminData = _useSelector.adminData;
 
-  console.log(adminData);
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
-
   var handleLogin = function handleLogin(e) {
     e.preventDefault();
     dispatch((0,_Actions_AdminActions__WEBPACK_IMPORTED_MODULE_4__.adminLogin)(email, password));
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (adminData) {
-      history.push("/admin/services");
-    }
-  }, [adminData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "fixed top-0 right-0 bottom-0 left-0 z-10 bg-white  "
@@ -7161,19 +7154,19 @@ var AdminMenu = function AdminMenu() {
         className: "flex flex-col items-center mt-5  w-full",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/services",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Services"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/locations",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Locations"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/sellers",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Sellers"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
           to: "/admin/clients",
-          className: "text-lg font-semibold px-8 py-4 hover:bg-gray-200 rounded-full",
+          className: "md:text-lg md:font-semibold px-4  md:px-8 py-4 \r hover:bg-gray-200 rounded-full",
           children: "Clients"
         })]
       })
@@ -7718,12 +7711,12 @@ var AllServices = function AllServices() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     var interval = null;
     interval = setInterval(function () {
-      if (highlightedServices && index < highlightedServices.length - 1) {
+      if ((highlightedServices === null || highlightedServices === void 0 ? void 0 : highlightedServices.length) > 1 && index < highlightedServices.length - 1) {
         setIndex(function (index) {
           return index + 1;
         });
       } else {
-        setIndex(1);
+        setIndex(0);
       }
     }, 5000);
     return function () {
@@ -7733,7 +7726,7 @@ var AllServices = function AllServices() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      children: [(highlightedServices === null || highlightedServices === void 0 ? void 0 : highlightedServices.length) > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "hidden md:block relative w-full lg:w-3/4 mx-auto",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
           onClick: function onClick() {
@@ -7771,11 +7764,11 @@ var AllServices = function AllServices() {
                   children: "Top Rated Sellers"
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-                className: "flex items-center justify-start px-5",
+                className: "flex items-center justify-start flex-wrap gap-4 px-5",
                 children: (_cat$ = cat[1]) === null || _cat$ === void 0 ? void 0 : _cat$.map(function (ser) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ServiceCard__WEBPACK_IMPORTED_MODULE_1__.default, {
                     service: ser
-                  });
+                  }, ser.name);
                 })
               })]
             });
@@ -8003,7 +7996,7 @@ var Cleint = function Cleint(props) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_OrderItem__WEBPACK_IMPORTED_MODULE_5__.default, {
               order: order,
               id: id
-            });
+            }, order.id);
           })
         })]
       })]
@@ -8136,37 +8129,37 @@ var EditProfile = function EditProfile(_ref) {
   }),
       userData = _useSelector.userData;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.first_name),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
       first_name = _useState2[0],
       setFirstname = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.last_name),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState4 = _slicedToArray(_useState3, 2),
       last_name = _useState4[0],
       setLasttname = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.email),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState6 = _slicedToArray(_useState5, 2),
       email = _useState6[0],
       setEmail = _useState6[1];
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.phone),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState8 = _slicedToArray(_useState7, 2),
       phone = _useState8[0],
       setPhone = _useState8[1];
 
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.address),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState10 = _slicedToArray(_useState9, 2),
       address = _useState10[0],
       setAddress = _useState10[1];
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.daily_start),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState12 = _slicedToArray(_useState11, 2),
       start = _useState12[0],
       setStart = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(user.daily_end),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
       _useState14 = _slicedToArray(_useState13, 2),
       end = _useState14[0],
       setEnd = _useState14[1];
@@ -8209,7 +8202,7 @@ var EditProfile = function EditProfile(_ref) {
           onClick: function onClick(e) {
             return handleUpdateProfile(e);
           },
-          className: "px-6 py-1 border  rounded-lg mr-8\r text-white bg-gray-600 text-lg font-semibold hover:bg-blue-500 ",
+          className: "px-6 py-1 border  rounded-lg mr-8\r text-white bg-gray-600 text-lg font-semibold hover:bg-gray-500  ",
           children: "Save"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -8228,8 +8221,8 @@ var EditProfile = function EditProfile(_ref) {
               onChange: function onChange(e) {
                 return setFirstname(e.target.value);
               },
-              defaultValue: first_name,
-              className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+              defaultValue: user === null || user === void 0 ? void 0 : user.first_name,
+              className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400",
               type: "text"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -8244,8 +8237,8 @@ var EditProfile = function EditProfile(_ref) {
               onChange: function onChange(e) {
                 return setLasttname(e.target.value);
               },
-              defaultValue: last_name,
-              className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+              defaultValue: user === null || user === void 0 ? void 0 : user.last_name,
+              className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400",
               type: "text"
             })]
           })]
@@ -8255,11 +8248,11 @@ var EditProfile = function EditProfile(_ref) {
             className: "absolute top-2 left-4",
             children: "Email"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
-            className: "w-full h-20 pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+            className: "w-full h-20 pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none\r focus:border-blue-400",
             onChange: function onChange(e) {
               return setEmail(e.target.value);
             },
-            defaultValue: email
+            defaultValue: user === null || user === void 0 ? void 0 : user.email
           })]
         }), type == "client." ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "w-11/12 relative  mb-4 mx-auto",
@@ -8270,8 +8263,8 @@ var EditProfile = function EditProfile(_ref) {
             onChange: function onChange(e) {
               return setAddress(e.target.value);
             },
-            defaultValue: address,
-            className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+            defaultValue: user === null || user === void 0 ? void 0 : user.address,
+            className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400",
             type: "text"
           })]
         }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -8283,14 +8276,14 @@ var EditProfile = function EditProfile(_ref) {
             onChange: function onChange(e) {
               return setPhone(e.target.value);
             },
-            defaultValue: phone,
-            className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:border-blue-400",
+            defaultValue: user === null || user === void 0 ? void 0 : user.phone,
+            className: "w-full pb-4 pt-8 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400",
             type: "text"
           })]
         }), type == "seller" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "w-11/12 relative  mb-2 mx-auto flex items-center justify-between",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "w-full pb-2 px-4 border-2 rounded-lg focus:border-blue-400 flex flex-col items-start",
+            className: "w-full pb-2 px-4 border-2 rounded-lg focus:outline-none \r focus:border-blue-400 flex flex-col items-start",
             style: {
               width: 48 + "%"
             },
@@ -8306,7 +8299,7 @@ var EditProfile = function EditProfile(_ref) {
               showSecond: false
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "w-full pb-2 px-4 border-2 rounded-lg focus:border-blue-400 flex flex-col items-start",
+            className: "w-full pb-2 px-4 border-2 rounded-lg focus:outline-none focus:border-blue-400\r flex flex-col items-start",
             style: {
               width: 48 + "%"
             },
@@ -8852,7 +8845,7 @@ __webpack_require__.r(__webpack_exports__);
 var Highlight = function Highlight(_ref) {
   var service = _ref.service;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: service && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "w-full mx-auto h-80 flex items-center mb-5 shadow-lg rounded-lg",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "h-full  slider-content rounded-l-lg pl-14 flex flex-col items-start p-4",
@@ -8874,7 +8867,7 @@ var Highlight = function Highlight(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: " text-xl mb-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-            "class": "fas fa-coins"
+            className: "fas fa-coins"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
             className: "ml-4",
             children: "".concat(service.price, " $/hr")
@@ -8887,7 +8880,7 @@ var Highlight = function Highlight(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: " h-full slider-img rounded-r-lg ",
         style: {
-          backgroundImage: "url(\"https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.seller_id, "_").concat(service.service, ".jpg\")")
+          backgroundImage: "url(\"https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.seller_id, "_").concat(service.service.replace(/\s/g, ''), ".jpg\")")
         }
       })]
     })
@@ -9078,7 +9071,7 @@ var OrderItem = function OrderItem(_ref) {
   }, "#order_image");
 
   var handleRating = function handleRating(rating) {
-    dispatch((0,_Actions_ordersActions__WEBPACK_IMPORTED_MODULE_5__.addRating)(order.id, rating));
+    dispatch((0,_Actions_ordersActions__WEBPACK_IMPORTED_MODULE_5__.addRating)(order === null || order === void 0 ? void 0 : order.id, rating));
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
@@ -9089,15 +9082,15 @@ var OrderItem = function OrderItem(_ref) {
         className: "w-full md:w-2/3 flex items-center justify-between text-sm md:text-l font-semibold",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, (_jsxs2 = {
           className: "focus:outline-none",
-          to: "/service/".concat(order.seller_id, "/").concat(order.service)
-        }, _defineProperty(_jsxs2, "className", "w-full text-left break-all"), _defineProperty(_jsxs2, "children", ["\u064D", "".concat(order.service, " by ").concat(order.first_name, " ").concat(order.last_name)]), _jsxs2))
+          to: "/service/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "/").concat(order === null || order === void 0 ? void 0 : order.service)
+        }, _defineProperty(_jsxs2, "className", "w-full text-left break-all"), _defineProperty(_jsxs2, "children", ["\u064D", "".concat(order === null || order === void 0 ? void 0 : order.service, " by ").concat(order === null || order === void 0 ? void 0 : order.first_name, " ").concat(order === null || order === void 0 ? void 0 : order.last_name)]), _jsxs2))
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "w-4/5 md:w-1/2 flex items-start justify-between text-sm md:text-l font-semibold",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           children: "Amount : "
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           className: "w-1/2 text-left",
-          children: "".concat(order.amount, " hrs")
+          children: "".concat(order === null || order === void 0 ? void 0 : order.amount, " hrs")
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "w-4/5 md:w-1/2 flex items-start justify-between text-sm md:text-l font-semibold",
@@ -9105,28 +9098,28 @@ var OrderItem = function OrderItem(_ref) {
           children: "Total Price : "
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
           className: "w-1/2 text-left",
-          children: "".concat(order.total_price, " EGP")
+          children: "$".concat(order === null || order === void 0 ? void 0 : order.total_price)
         })]
-      }), order.status == "finished" && userData && userData.id == id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      }), (order === null || order === void 0 ? void 0 : order.status) == "finished" && userData && (userData === null || userData === void 0 ? void 0 : userData.id) == id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "w-1/3 ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_StarRating__WEBPACK_IMPORTED_MODULE_6__.default, {
           handler: handleRating,
           value: (order === null || order === void 0 ? void 0 : (_order$rating$ = order.rating[0]) === null || _order$rating$ === void 0 ? void 0 : _order$rating$.value) || 0
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: "w-3/5 lg:w-1/3 px-4 py-2 bg-yellow-200 rounded-lg flex items-center \r justify-between text-sm md:text-l font-normal",
+        className: "w-3/5 lg:w-2/5 px-4 py-2 bg-yellow-200 rounded-lg flex items-center \r justify-between text-sm md:text-l font-normal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
-          className: "far fa-calendar-alt"
+          className: "far fa-calendar-alt mr-2"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-          children: moment__WEBPACK_IMPORTED_MODULE_1___default()(order.starts_at).format('MMMM Do YYYY')
+          children: moment__WEBPACK_IMPORTED_MODULE_1___default()(order === null || order === void 0 ? void 0 : order.starts_at).format('MMMM Do YYYY')
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "w-20 h-20 p-2 rounded-md bg-green-400 absolute -top-6 re-position   flex items-end justify-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-        children: order.status
+        children: order === null || order === void 0 ? void 0 : order.status
       })
-    }), order.image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    }), (order === null || order === void 0 ? void 0 : order.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "absolute top-36  flex items-end re-position",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
         className: "focus:outline-none",
@@ -9137,11 +9130,12 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
       className: "w-2/5 h-full hidden md:block",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(order.seller_id, "_").concat(order.service, ".jpg")
+      alt: "service image",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929\n            /services/".concat(order === null || order === void 0 ? void 0 : order.seller_id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
-      image: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/".concat(order.image, ".jpg")
+      image: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/".concat(order === null || order === void 0 ? void 0 : order.image, ".jpg")
     })]
   });
 };
@@ -9290,6 +9284,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Profile = function Profile(_ref) {
   var profile = _ref.profile,
       type = _ref.type;
+  console.log(profile);
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -9323,7 +9318,7 @@ var Profile = function Profile(_ref) {
     var formData = new FormData();
     var img = e.target.files[0];
     formData.append("image", img);
-    dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_2__.updatePersonalImage)(formData, userData.id, type));
+    dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_2__.updatePersonalImage)(formData, userData === null || userData === void 0 ? void 0 : userData.id, type));
     SetX(!x);
   };
 
@@ -9333,9 +9328,9 @@ var Profile = function Profile(_ref) {
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, [userData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [profile && userData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: [profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full  lg:w-1/3 shadow-lg rounded-md mt-12 lg:mt-20 p-5  bg-white relative",
-      children: [userData.id == profile.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+      children: [(userData === null || userData === void 0 ? void 0 : userData.id) == profile.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
         className: "text-2xl text-gray-600 hover:text-gray-400 absolute top-2 right-2",
         onClick: function onClick() {
           return setIsOpen(true);
@@ -9350,7 +9345,7 @@ var Profile = function Profile(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
             src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/".concat(folder, "/").concat(profile.id, ".jpg"),
             className: "w-32 h-32 rounded-full"
-          }), userData.id == profile.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+          }), (userData === null || userData === void 0 ? void 0 : userData.id) == profile.id ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
               id: "image",
               type: "file",
@@ -9425,7 +9420,7 @@ var Profile = function Profile(_ref) {
           children: profile.address
         })]
       }) : null]
-    }), userData.id == profile.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_EditProfile__WEBPACK_IMPORTED_MODULE_3__.default, {
+    }), (userData === null || userData === void 0 ? void 0 : userData.id) == profile.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_EditProfile__WEBPACK_IMPORTED_MODULE_3__.default, {
       isOpen: isOpen,
       domNode: node,
       close: function close() {
@@ -9734,8 +9729,14 @@ var Seller = function Seller(props) {
     dispatch((0,_Actions_userActions__WEBPACK_IMPORTED_MODULE_7__.getProfile)(id, "seller"));
   }, [id]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
-      message: error.message
+    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+      className: "w-full flex items-center justify-center mt-24",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_9__.default, {}), " "]
+    }) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+      className: "w-full flex items-center justify-center mt-24",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_8__.default, {
+        message: error.message
+      })
     }) : profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
       className: "min-h-screen flex flex-col lg:flex-row items-start justify-between",
       children: [profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_Profile__WEBPACK_IMPORTED_MODULE_2__.default, {
@@ -9759,10 +9760,10 @@ var Seller = function Seller(props) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "p-2",
-            children: orders && orders.map(function (order) {
+            children: (orders === null || orders === void 0 ? void 0 : orders.length) > 0 && orders.map(function (order) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_SellerOrderItem__WEBPACK_IMPORTED_MODULE_10__.default, {
                 order: order
-              });
+              }, order.id);
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100",
@@ -9821,10 +9822,10 @@ var Seller = function Seller(props) {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "p-2",
-            children: servings && servings.map(function (ser) {
+            children: (servings === null || servings === void 0 ? void 0 : servings.length) > 0 && servings.map(function (ser) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_ServiceItem__WEBPACK_IMPORTED_MODULE_3__.default, {
                 service: ser
-              }, ser);
+              }, ser.service);
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100",
@@ -9929,7 +9930,7 @@ var OrderItem = function OrderItem(_ref) {
   }, "#simenu");
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "w-full  h-48 flex items-start border-2 rounded-lg p-2 mb-2 relative overflow-hidden hts ",
-    children: [userData.id == order.seller_id && order.status != "finished" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+    children: [(userData === null || userData === void 0 ? void 0 : userData.id) == (order === null || order === void 0 ? void 0 : order.seller_id) && (order === null || order === void 0 ? void 0 : order.status) != "finished" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
       className: "w-10 h-10 rounded-full bg-white \r absolute  top-0 right-0 hidden focus:outline-none",
       onClick: function onClick() {
         return setIsMenuOpen(true);
@@ -9943,7 +9944,7 @@ var OrderItem = function OrderItem(_ref) {
         className: "w-2/3 flex items-center justify-between text-xl font-semibold mb-2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
           className: "w-3/4 text-left",
-          children: ["\u064D", "".concat(order.service)]
+          children: ["\u064D", "".concat(order === null || order === void 0 ? void 0 : order.service)]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "w-4/5 md:w-1/2 flex items-start justify-between text-sm md:text-l font-semibold",
@@ -9951,7 +9952,7 @@ var OrderItem = function OrderItem(_ref) {
           children: "Amount : "
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
           className: "w-1/2 text-left",
-          children: ["".concat(order.amount, " hrs"), " "]
+          children: ["".concat(order === null || order === void 0 ? void 0 : order.amount, " hrs"), " "]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "w-4/5 md:w-1/2 flex items-start justify-between text-sm md:text-l font-semibold",
@@ -9959,14 +9960,14 @@ var OrderItem = function OrderItem(_ref) {
           children: "Total Price : "
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
           className: "w-1/2 text-left",
-          children: "".concat(order.total_price, " EGP ")
+          children: "$".concat(order === null || order === void 0 ? void 0 : order.total_price)
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "w-2/3 md:w-1/2 lg:w-3/5 px-4 py-2 bg-yellow-200 rounded-lg flex items-center \r justify-between text-sm md:text-l font-normal",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
           className: "far fa-calendar-alt"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-          children: moment__WEBPACK_IMPORTED_MODULE_1___default()(order.starts_at).format('MMMM Do YYYY')
+          children: moment__WEBPACK_IMPORTED_MODULE_1___default()(order === null || order === void 0 ? void 0 : order.starts_at).format('MMMM Do YYYY')
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -9977,9 +9978,9 @@ var OrderItem = function OrderItem(_ref) {
         right: 2 + "%"
       },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
-        children: order.status
+        children: order === null || order === void 0 ? void 0 : order.status
       })
-    }), order.image && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    }), (order === null || order === void 0 ? void 0 : order.image) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "absolute top-32  flex items-end",
       style: window.screen.width > 400 ? {
         left: 42 + "%"
@@ -9994,11 +9995,12 @@ var OrderItem = function OrderItem(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
       className: "hidden md:block w-2/5 h-full",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(userData.id, "_").concat(order.service, ".jpg")
+      alt: "service image",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929\n            /services/".concat(userData === null || userData === void 0 ? void 0 : userData.id, "_").concat(order === null || order === void 0 ? void 0 : order.service.replace(/\s/g, ''))
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OrderImage__WEBPACK_IMPORTED_MODULE_2__.default, {
       isOpen: isOpen,
       domNode: domNode,
-      image: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/".concat(order.image, ".jpg")
+      image: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621062688/".concat(order === null || order === void 0 ? void 0 : order.image)
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_OrderItemMenu__WEBPACK_IMPORTED_MODULE_5__.default, {
       order: order,
       isOpen: isMenuOpen,
@@ -10146,7 +10148,10 @@ var Service = function Service(props) {
     dispatch((0,_Actions_ordersActions__WEBPACK_IMPORTED_MODULE_5__.getClientOrders)(userData === null || userData === void 0 ? void 0 : userData.id));
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_6__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      className: "w-full mt-16",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_6__.default, {})
+    }) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "w-full pt-16",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_7__.default, {})
     }) : serving && profile ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -10159,7 +10164,7 @@ var Service = function Service(props) {
         status: "success"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "text-xl font-bold mb-10",
-        children: "".concat(serving.offer.service, " By ").concat(profile.seller.first_name, " ").concat(profile.seller.last_name)
+        children: "".concat(serving.offer.service, " By ").concat(profile === null || profile === void 0 ? void 0 : profile.seller.first_name, " ").concat(profile === null || profile === void 0 ? void 0 : profile.seller.last_name)
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "h-5/6 flex flex-col-reverse lg:flex-row items-center mt-6 lg:mt-0",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
@@ -10168,11 +10173,11 @@ var Service = function Service(props) {
             className: "flex flex-col items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
               className: "w-20 h-20 rounded-full",
-              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/sellers/".concat(profile.seller.id, ".jpg")
+              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/sellers/".concat(profile === null || profile === void 0 ? void 0 : profile.seller.id, ".jpg")
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
               to: "/seller/".concat(id),
               className: "text-xl font-semibold mt-2",
-              children: "".concat(profile.seller.first_name, " ").concat(profile.seller.last_name)
+              children: "".concat(profile === null || profile === void 0 ? void 0 : profile.seller.first_name, " ").concat(profile === null || profile === void 0 ? void 0 : profile.seller.last_name)
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "w-full lg:w-2/3 mx-auto flex items-center flex-col mt-4 mb-8",
@@ -10182,7 +10187,7 @@ var Service = function Service(props) {
                 className: "fas fa-compass"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "w-10/12 text-left ml-2",
-                children: profile.seller.location
+                children: profile === null || profile === void 0 ? void 0 : profile.seller.location
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "w-3/5 mt-8 flex items-center justify-between mx-auto text-xl",
@@ -10190,7 +10195,7 @@ var Service = function Service(props) {
                 className: "fas fa-clock"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "w-10/12 text-left",
-                children: profile.seller.daily_start
+                children: profile === null || profile === void 0 ? void 0 : profile.seller.daily_start
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "w-3/5 mt-8 flex items-center justify-between mx-auto text-xl",
@@ -10198,7 +10203,7 @@ var Service = function Service(props) {
                 className: "far fa-clock"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "w-10/12 text-left",
-                children: profile.seller.daily_end
+                children: profile === null || profile === void 0 ? void 0 : profile.seller.daily_end
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               className: "w-2/3 mx-auto flex items-center flex-col mt-8 mb-10",
@@ -10208,7 +10213,7 @@ var Service = function Service(props) {
                 size: 30
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
                 className: "mt-3",
-                children: "( ".concat(profile.rating[1], " Reviews )")
+                children: "( ".concat(profile === null || profile === void 0 ? void 0 : profile.rating[1], " Reviews )")
               })]
             })]
           })]
@@ -10226,8 +10231,8 @@ var Service = function Service(props) {
                 children: serving.offer.details
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
-              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service, ".jpg"),
-              className: "w-1/2 mx-auto h-80 rounded-lg hidden lg:block"
+              className: "w-1/2 mx-auto h-80 rounded-lg hidden lg:block",
+              src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(id, "_").concat(service.replace(/\s/g, ''))
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0",
@@ -10267,13 +10272,13 @@ var Service = function Service(props) {
             })]
           })]
         })]
-      }), serving && profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AddOrder__WEBPACK_IMPORTED_MODULE_8__.default, _defineProperty({
-        service: serving.offer,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_AddOrder__WEBPACK_IMPORTED_MODULE_8__.default, _defineProperty({
+        service: serving === null || serving === void 0 ? void 0 : serving.offer,
         isOpen: isOpen,
         close: function close() {
           return setIsOpen(false);
         },
-        seller: profile.seller
+        seller: profile === null || profile === void 0 ? void 0 : profile.seller
       }, "close", function close() {
         return setIsOpen(false);
       }))]
@@ -10326,7 +10331,7 @@ var ServiceCard = function ServiceCard(_ref) {
         className: "font-semibold text-2xl mb-2 ",
         children: service.service
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.id, "_").concat(service.service, ".jpg"),
+        src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.id, "_").concat(service.service.replace(/\s/g, '')),
         className: "w-11/12 h-2/5 max-h-2/5 rounded-sm mx-auto"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-left p-2 max-h-24 ",
@@ -10432,7 +10437,7 @@ var ServiceItem = function ServiceItem(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "w-full h-44  flex items-start border-2 rounded-lg p-2 mb-2 hts relative",
-    children: [userData.id == service.seller_id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+    children: [(userData === null || userData === void 0 ? void 0 : userData.id) == (service === null || service === void 0 ? void 0 : service.seller_id) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
       className: "w-10 h-10 rounded-full\r bg-white absolute top-0 right-0 hidden focus:outline-none",
       onClick: function onClick() {
         return setIsOpen(true);
@@ -10443,43 +10448,44 @@ var ServiceItem = function ServiceItem(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "w-full md:w-3/5 flex flex-col items-start justify-start h-full",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-        to: "/service/".concat(service.seller_id, "/").concat(service.service),
+        to: "/service/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "/").concat(service === null || service === void 0 ? void 0 : service.service),
         className: "font-bold text-2xl mb-2 ",
-        children: service.service
+        children: service === null || service === void 0 ? void 0 : service.service
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "text-left mb-.5 lg:mb-2",
-        children: service.snippet
+        children: service === null || service === void 0 ? void 0 : service.snippet
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "w-full flex items-center justify-between md:justify-start mr-1 md:mr-2 mt-auto",
-        children: [service.discount > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [(service === null || service === void 0 ? void 0 : service.discount) > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "text-sm font-normal px-2 py-2 md:px-2 md:mr-2 md:text-lg md:font-medium \r flex items-center justify-center rounded-lg bg-red-200 ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
             className: "line-through mr-0.5 md:mr-2",
-            children: "".concat(service.price, " $/hr")
+            children: "".concat(service === null || service === void 0 ? void 0 : service.price, " $/hr")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-            children: "".concat(service.discount, "% discount")
+            children: "".concat(service === null || service === void 0 ? void 0 : service.discount, "% discount")
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
           className: " text-sm font-normal px-2 py-2 md:px-2 md:py-2 mt-auto md:font-medium rounded-lg md:text-lg \r bg-green-400 text-white text-center ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: " mr-2 fas fa-coins"
-          }), "".concat(service.discount > 0 ? clacDiscount(service.price, service.discount).toFixed(2) : service.price, " $/hr")]
+          }), "".concat((service === null || service === void 0 ? void 0 : service.discount) > 0 ? clacDiscount(service === null || service === void 0 ? void 0 : service.price, service === null || service === void 0 ? void 0 : service.discount).toFixed(2) : service === null || service === void 0 ? void 0 : service.price, " $/hr")]
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-      className: "hidden md:block w-2/5 h-40",
-      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/".concat(service.seller_id, "_").concat(service.service, ".jpg")
+      className: "hidden md:block max-w-2/5 h-40",
+      alt: "service image",
+      src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929\n                /services/".concat(service === null || service === void 0 ? void 0 : service.seller_id, "_").concat(service === null || service === void 0 ? void 0 : service.service.replace(/\s/g, ''))
     }), isOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ServiceItemMenu__WEBPACK_IMPORTED_MODULE_2__.default, {
       node: domeNode,
-      id: service.seller_id,
-      service: service.service,
+      id: service === null || service === void 0 ? void 0 : service.seller_id,
+      service: service === null || service === void 0 ? void 0 : service.service,
       openEdit: function openEdit() {
         return setIsUpdateOpen(true);
       },
       close: function close() {
         return setIsOpen(false);
       }
-    }), userData.id == service.seller_id && isUpdateOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UpdateService__WEBPACK_IMPORTED_MODULE_4__.default, {
+    }), (userData === null || userData === void 0 ? void 0 : userData.id) == (service === null || service === void 0 ? void 0 : service.seller_id) && isUpdateOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_UpdateService__WEBPACK_IMPORTED_MODULE_4__.default, {
       service: service,
       isOpen: isUpdateOpen,
       close: function close() {
@@ -10630,14 +10636,12 @@ var ServicePage = function ServicePage(props) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_Actions_servicesActions__WEBPACK_IMPORTED_MODULE_3__.getByService)(srv));
   }, [srv]);
+  console.log(services);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_4__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_5__.default, {
-      status: "fail",
-      message: error
-    }) : services ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "w-full mb-5 min-h-screen",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-        className: "w-full h-12 text-white flex items-center justify-between rounded-lg shadow-md ",
+        className: "w-full h-12 text-white flex items-center justify-between rounded-lg shadow-md",
         style: {
           background: "#28abb9"
         },
@@ -10645,15 +10649,18 @@ var ServicePage = function ServicePage(props) {
           className: "ml-10 font-bold text-xl",
           children: srv
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      }), loading ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Spinner__WEBPACK_IMPORTED_MODULE_4__.default, {}) : error ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Status__WEBPACK_IMPORTED_MODULE_5__.default, {
+        status: "fail",
+        message: error
+      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "flex items-center justify-start gap-4 flex-wrap",
-        children: services.map(function (service) {
+        children: services === null || services === void 0 ? void 0 : services.map(function (service) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ServiceCard__WEBPACK_IMPORTED_MODULE_2__.default, {
             service: service
           });
         })
       })]
-    }) : null
+    })
   });
 };
 
@@ -10695,10 +10702,9 @@ var SideMenu = function SideMenu() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_Actions_servicesActions__WEBPACK_IMPORTED_MODULE_2__.getServices)());
   }, []);
-  console.log(services);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "fixed top-20 h-screen border-l-2 border-r-2 hidden lg:flex flex-col items-center \r bg-white shadow-lg rounded-lg",
+      className: "fixed top-20 h-screen border-l-2 border-r-2 hidden lg:flex flex-col items-center \r bg-white shadow-lg rounded-lg overflow-y-auto",
       style: {
         height: "86vh",
         width: 17 + "%"
@@ -10718,12 +10724,12 @@ var SideMenu = function SideMenu() {
           to: "/main",
           className: "focus:outline-none text-lg font-semibold px-8 py-4\r hover:bg-gray-200 rounded-full",
           children: "Top Rated"
-        }), services.map(function (service) {
+        }), services === null || services === void 0 ? void 0 : services.map(function (service) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             className: "text-lg font-semibold px-8  py-4 hover:bg-gray-200 rounded-full focus:outline-none",
             to: "/main/service/".concat(service.name),
             children: service.name
-          });
+          }, service.name);
         })]
       })]
     })
@@ -10809,11 +10815,6 @@ var SignIn = function SignIn() {
       error = _useSelector.error,
       userData = _useSelector.userData;
 
-  var _useSelector2 = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.admin;
-  }),
-      adminData = _useSelector2.adminData;
-
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useHistory)();
 
   var handleLogin = function handleLogin(e) {
@@ -10835,11 +10836,7 @@ var SignIn = function SignIn() {
     if (userData) {
       history.push("/");
     }
-
-    if (adminData) {
-      window.location.href = "/admin/services";
-    }
-  }, [userData, adminData]);
+  }, [userData]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
       className: "flex flex-col items-center justify-evenly w-full md:w-3/4 lg:w-1/3 h-auto mt-20 bg-white shadow-lg rounded-lg pb-10  pt-4 mx-auto",
@@ -11443,7 +11440,7 @@ var SignedUser = function SignedUser() {
   var folder = type == "client" ? "clients" : "sellers";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: userData && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "mr-1 md:mr-4 w-1/2 md:w-1/4 lg:w-auto lg:mr-10 relative",
+      className: "mr-1 md:mr-4 w-1/2 md:w-max lg:mr-10 relative",
       onClick: function onClick() {
         return setIsOpen(!isOpen);
       },
@@ -11451,6 +11448,7 @@ var SignedUser = function SignedUser() {
         className: "flex items-center hover:bg-gray-600 px-2 py-1 lg-px-4 lg:py-2 rounded-lg cursor-pointer ",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           className: "w-10 h-10 rounded-full",
+          alt: "profile",
           src: "https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/".concat(folder, "/").concat(userData.id, ".jpg")
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: "ml-1 md:ml-2 text-white text-sm md:text-lg lg:text-xl truncate",
@@ -11697,7 +11695,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var UnSignedUser = function UnSignedUser() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    className: "md:mr-4 w-1/2 md:w-1/4 lg:w-max lg:mr-10",
+    className: "w-max wr-2 lg:w-max lg:mr-10",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
       className: "lg:text-xl lg:p-5 md:p-2 p-1 text-white",
       to: "/signin",
@@ -12228,7 +12226,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var initialState = {};
+var userData = localStorage.getItem("userdata") ? JSON.parse(localStorage.getItem("userdata")) : null;
+var initialState = {
+  userSignIn: {
+    userData: userData
+  }
+};
 var reducer = (0,redux__WEBPACK_IMPORTED_MODULE_5__.combineReducers)({
   userSignIn: _Reducers_usersReducers__WEBPACK_IMPORTED_MODULE_1__.loginReducer,
   registerUser: _Reducers_usersReducers__WEBPACK_IMPORTED_MODULE_1__.registerReducer,

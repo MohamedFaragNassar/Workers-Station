@@ -14,7 +14,6 @@ const Cleint = (props) => {
     const {addRatingLoading,addRatingError,addedRating} = useSelector(state => state.rating)
    
     const dispatch = useDispatch()
-    
     useEffect(() => {
         dispatch(getProfile(id,"client"))
         dispatch(getClientOrders(id))
@@ -33,7 +32,7 @@ const Cleint = (props) => {
                 </div>
                 <div className="p-2">
                     {orders.map(order => 
-                        <OrderItem order={order} id={id} />    
+                        <OrderItem order={order} id={id} key={order.id} />    
                     )}
                 </div>
             </div>

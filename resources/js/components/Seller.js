@@ -34,9 +34,12 @@ const Seller = (props) => {
    
     return <>
 
-        {loading?<Spinner /> : error ? <Status message={error.message} /> : profile ?
+        {loading?<div className="w-full flex items-center justify-center mt-24" ><Spinner /> </div>:
+        error ? <div className="w-full flex items-center justify-center mt-24" >
+            <Status message={error.message} /> 
+            </div>: profile ?
             <div className="min-h-screen flex flex-col lg:flex-row items-start justify-between">
-           {profile&& <Profile profile={profile.seller} type="seller" />}
+           {profile && <Profile profile={profile.seller} type="seller" />}
             <div className=" w-full lg:w-2/3 flex flex-col items-center mt-20" >
                 <div className="w-full ml-2 mb-2 bg-white shadow-lg rounded-lg  overflow-y-auto relative anim" style={{height:height+"vh"}} >
                     {ordersLoading&&<Spinner />}
@@ -45,8 +48,8 @@ const Seller = (props) => {
                         <h1 className="font-bold text-xl">Orders</h1>
                     </div>
                     <div className="p-2">
-                    {orders&&orders.map(order => 
-                            <SellerOrderItem order={order} />
+                    {orders?.length > 0 &&orders.map(order => 
+                            <SellerOrderItem order={order} key={order.id} />
                         )}
                     </div>
                     <div className="w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100" >
@@ -71,8 +74,8 @@ const Seller = (props) => {
                         </button>}
                     </div>
                     <div className="p-2">
-                    {servings&&servings.map(ser => 
-                            <ServiceItem key={ser} service={ser} />
+                    {servings?.length > 0 &&servings.map(ser => 
+                            <ServiceItem service={ser} key={ser.service} />
                         )}
                     </div>
                     <div className="w-full h-10 sticky  bottom-0 flex items-center justify-center bg-white hover:bg-gray-100" >

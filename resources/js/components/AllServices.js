@@ -43,10 +43,10 @@ const AllServices = () => {
     useEffect(() => {
         let interval = null;
         interval = setInterval(() => {
-            if( highlightedServices && index < highlightedServices.length-1){
+            if( highlightedServices?.length > 1 && index < highlightedServices.length-1){
                 setIndex(index => index + 1);
             }else{
-                setIndex(1)
+                setIndex(0)
             }
         }, 5000);
         return () => clearInterval(interval);
@@ -54,7 +54,7 @@ const AllServices = () => {
     
     return <>
         <div className="w-full">
-          <div className= "hidden md:block relative w-full lg:w-3/4 mx-auto">
+          {highlightedServices?.length > 0 && <div className= "hidden md:block relative w-full lg:w-3/4 mx-auto">
                 <button onClick={()=>handleNext()} 
                 className=" absolute left-0 h-full rounded-l-lg w-10 bg-gray-100 bg-opacity-50 hover:bg-opacity-80 focus:outline-none ">
                     {"<"}
@@ -64,7 +64,7 @@ const AllServices = () => {
                 className=" absolute right-0 top-0 rounded-r-lg h-full w-10 bg-gray-100 bg-opacity-50 hover:bg-opacity-80 focus:outline-none">
                     {">"}
                 </button>
-            </div>
+            </div>}
             <div className="flex items-center flex-wrap justify-between w-full" >
                 {data?.map(cat => {
                     if(cat[1].length > 0){
@@ -74,9 +74,9 @@ const AllServices = () => {
                                     <span className="ml-10 font-bold text-xl" >{cat[0]}</span>
                                     <span className="mr-10">Top Rated Sellers</span>
                                 </div>
-                                <div className="flex items-center justify-start px-5">
+                                <div className="flex items-center justify-start flex-wrap gap-4 px-5">
                                     {cat[1]?.map(ser => 
-                                        <ServiceCard service={ser} />
+                                        <ServiceCard service={ser} key={ser.name} />
                                     )}
                                 </div>
                              </div>   

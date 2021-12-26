@@ -16,8 +16,11 @@ const adminLogin = (email,password) => async (dispatch)=>{
         dispatch({type:ADMIN_LOGIN_REQUEST})
         Axios.defaults.withCredentials = true;
         axios.get('/sanctum/csrf-cookie').then(async(response) => {
-            const {data} = await Axios.post(`/adminlogin/`,{email,password})
+            const {data} = await Axios.post(`/adminlogin`,{email,password})
             dispatch({type:ADMIN_LOGIN_SUCCESS,payload:data.user})
+            localStorage.setItem("adminData",JSON.stringify(data.user))
+            window.location.href = "/admin/services"
+
         });
        
     }catch(err){
@@ -33,7 +36,7 @@ const adminLogin = (email,password) => async (dispatch)=>{
 const addService = (name) => async (dispatch)=>{
     try{
         dispatch({type:ADD_SERVICE_REQUEST})
-        const {data} = await Axios.post(`/api/addservice/`,{name})
+        const {data} = await Axios.post(`/api/addservice`,{name})
         dispatch({type:ADD_SERVICE_SUCCESS,payload:data})
         dispatch({type:ADD_SERVICE,payload:data})
     }catch(err){
@@ -45,7 +48,7 @@ const deleteService = (name) => async (dispatch)=>{
     try{
         console.log(name)
         dispatch({type:DELETE_SERVICE_REQUEST})
-        const {data} = await Axios.post(`/api/deleteservice/`,{name})
+        const {data} = await Axios.post(`/api/deleteservice`,{name})
         dispatch({type:DELETE_SERVICE_SUCCESS,payload:data})
         dispatch({type:DELETE_SERVICE,payload:name})
     }catch(err){
@@ -56,7 +59,7 @@ const deleteService = (name) => async (dispatch)=>{
 const updateService = (name,status) => async (dispatch)=>{
     try{
         dispatch({type:UPDATE_SERVICE_REQUEST})
-        const {data} = await Axios.post(`/api/updateservice/`,{name,status})
+        const {data} = await Axios.post(`/api/updateservice`,{name,status})
         dispatch({type:UPDATE_SERVICE_SUCCESS,payload:data})
         dispatch({type:UPDATE_SERVICE,payload:data})
     }catch(err){
@@ -67,7 +70,7 @@ const updateService = (name,status) => async (dispatch)=>{
 const addLocation = (name) => async (dispatch)=>{
     try{
         dispatch({type:ADD_LOCATION_REQUEST})
-        const {data} = await Axios.post(`/api/addlocation/`,{name})
+        const {data} = await Axios.post(`/api/addlocation`,{name})
         dispatch({type:ADD_LOCATION_SUCCESS,payload:data})
         dispatch({type:ADD_LOCATION,payload:data})
     }catch(err){
@@ -78,7 +81,7 @@ const addLocation = (name) => async (dispatch)=>{
 const deleteLocation = (name) => async (dispatch)=>{
     try{
         dispatch({type:DELETE_LOCATION_REQUEST})
-        const {data} = await Axios.post(`/api/deletelocation/`,{name})
+        const {data} = await Axios.post(`/api/deletelocation`,{name})
         dispatch({type:DELETE_LOCATION_SUCCESS,payload:data})
         dispatch({type:DELETE_LOCATION,payload:name})
     }catch(err){
@@ -89,7 +92,7 @@ const deleteLocation = (name) => async (dispatch)=>{
 const deleteUser = (id,type) => async (dispatch)=>{
     try{
         dispatch({type:DELETE_USER_REQUEST})
-        const {data} = await Axios.post(`/api/${type == "client"? "deleteclient":"deleteseller"}/`,{id})
+        const {data} = await Axios.post(`/api/${type == "client"? "deleteclient":"deleteseller"}`,{id})
         dispatch({type:DELETE_USER_SUCCESS,payload:data})
         dispatch({type:DELETE_USER,payload:id})
     }catch(err){
@@ -99,7 +102,7 @@ const deleteUser = (id,type) => async (dispatch)=>{
 const getUsers = (type) => async (dispatch)=>{
     try{
         dispatch({type:GET_USERS_REQUEST})
-        const {data} = await Axios.get(`/api/${type}s/`)
+        const {data} = await Axios.get(`/api/${type}s`)
         dispatch({type:GET_USERS_SUCCESS,payload:data.users})
     }catch(err){
         dispatch({type:GET_USERS_FAIL,payload:err})
@@ -109,7 +112,7 @@ const getUsers = (type) => async (dispatch)=>{
 const getServices = () => async (dispatch)=>{
     try{
         dispatch({type:GET_ADMIN_SERVICES_REQUEST})
-        const {data} = await Axios.get(`/api/adminservices/`)
+        const {data} = await Axios.get(`/api/adminservices`)
         dispatch({type:GET_ADMIN_SERVICES_SUCCESS,payload:data.services})
     }catch(err){
         dispatch({type:GET_ADMIN_SERVICES_FAIL,payload:err})
@@ -119,7 +122,7 @@ const getServices = () => async (dispatch)=>{
 const getLocations = () => async (dispatch)=>{
     try{
         dispatch({type:GET_ADMIN_LOCATION_REQUEST})
-        const {data} = await Axios.get(`/api/adminlocations/`)
+        const {data} = await Axios.get(`/api/adminlocations`)
         dispatch({type:GET_ADMIN_LOCATION_SUCCESS,payload:data.locations})
     }catch(err){
         dispatch({type:GET_ADMIN_LOCATION_FAIL,payload:err})

@@ -88,7 +88,7 @@ const updateService = (service,seller_id,price,snippet,details,discount,image) =
 const getSellerServing = (id) => async (dispatch)=>{
     try{
         dispatch({type:GET_SELLER_SERVING_REQUEST})
-        const {data} = await Axios.post(`/api/sellerserving/`,{id})
+        const {data} = await Axios.post(`/api/sellerserving`,{id})
         dispatch({type:GET_SELLER_SERVING_SUCCESS,payload:data.offers})
     }catch(err){
         dispatch({type:GET_SELLER_SERVING_FAIL,payload:err})
@@ -98,7 +98,7 @@ const getSellerServing = (id) => async (dispatch)=>{
 const deleteService = (id,service) => async (dispatch)=>{
     dispatch({type:DELETE_SERVICE_REQUEST})
     try{
-        const {data} = await Axios.post('/api/deleteserving/',{id,service})
+        const {data} = await Axios.post('/api/deleteserving',{id,service})
         dispatch({type:DELETE_SERVICE_SUCCESS,payload:data})
         dispatch({type:DELETE_SERVING,payload:service})
         
@@ -110,7 +110,7 @@ const deleteService = (id,service) => async (dispatch)=>{
 const getOneServing = (id,service) => async (dispatch)=>{
     try{
         dispatch({type:GET_ONE_SERVICE_REQUEST})
-        const {data} = await Axios.post(`/api/offer/`,{id,service})
+        const {data} = await Axios.post(`/api/offer`,{id,service})
         dispatch({type:GET_ONE_SERVICE_SUCCESS,payload:data})
     }catch(err){
         dispatch({type:GET_ONE_SERVICE_FAIL,payload:err})
@@ -140,7 +140,7 @@ const getTopFour = ()=>  async (dispatch)=>{
 const getByService = (service) =>  async (dispatch)=>{
     try{
         dispatch({type:GET_BY_SERVICE_REQUEST})
-        const {data} = await Axios.post(`/api/service/`,{service})
+        const {data} = await Axios.post(`/api/service`,{service})
         dispatch({type:GET_BY_SERVICE_SUCCESS,payload:data.offers})
     }catch(err){
         dispatch({type:GET_BY_SERVICE_FAIL,payload:err})

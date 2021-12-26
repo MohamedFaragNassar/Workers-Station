@@ -16,10 +16,7 @@ const SignIn = () => {
     
      const {loading,error,userData}  =useSelector(state => state.userSignIn)
     
-    const {adminData}  =  useSelector(state => state.admin)
     
-   
-
     const history = useHistory()
 
     const handleLogin = (e)=>{
@@ -42,10 +39,7 @@ const SignIn = () => {
         if(userData){
             history.push("/")
         }
-        if(adminData){
-            window.location.href = "/admin/services"
-        }
-    }, [userData,adminData]) 
+    }, [userData]) 
     
     return <>
         <form className="flex flex-col items-center justify-evenly w-full md:w-3/4 lg:w-1/3 h-auto mt-20 bg-white shadow-lg rounded-lg pb-10  pt-4 mx-auto" 

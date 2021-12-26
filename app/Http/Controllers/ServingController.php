@@ -55,12 +55,7 @@ class ServingController extends Controller
     }
     public function getbyseller(Request $request)
     {
-        if (!$request->secure() && App::environment() === 'production') {
-            return redirect()->secure($request->getRequestUri());
-        }
-
-        
-        $offers = Serving::with("order")->where("servings.seller_id",$request["id"])->get();
+        $offers = Serving::with("orders")->where("servings.seller_id",$request["id"])->get();
         return response()->json(["offers" => $offers]); 
         
     }
@@ -110,7 +105,8 @@ class ServingController extends Controller
         
         $seller_id = $offer["seller_id"];
         $service = $offer["service"];
-        $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$service}");
+        $ser = str_replace(' ', '', $service);
+        $result = $request->file("image")->storeOnCloudinaryAs("services", "{$seller_id}_{$ser}");
          
         return response()->json(["offer" => $offer]);
         

@@ -47,7 +47,9 @@ const AddService = ({isOpen,close,seller_id}) => {
           bg-white flex flex-col items-center justify-between py-2 z-20" >
             <div className="w-full mx-auto flex  items-center justify-between   mb-2 " >
                 <div className="flex  items-center justify-between ml-2">
-                    <button className="mx-2 text-lg" onClick={close}><i class="fal fa-times-circle"></i></button>
+                    <button className="mx-2 text-lg focus:outline-none" onClick={close}>
+                        <i className="fal fa-times-circle"></i>
+                    </button>
                     <h1 className="font-bold text-xl">Add service</h1>
                 </div>
             </div>
@@ -75,7 +77,7 @@ const AddService = ({isOpen,close,seller_id}) => {
                      style={{resize:"none"}} onChange={(e)=>setDetails(e.target.value)}  />
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
-                    <span  className="absolute top-2 left-4" >Price (EGP/hr)</span>
+                    <span  className="absolute top-2 left-4" >Price ($/hr)</span>
                     <input required={true} type="number" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg 
                     focus:outline-none focus:border-blue-400"
                       onChange={(e)=>setPrice(e.target.value)}/>
@@ -88,7 +90,7 @@ const AddService = ({isOpen,close,seller_id}) => {
                 </div>
                 <div  className="w-11/12 relative  mb-2 mx-auto">
                     <span  className="absolute top-2 left-4" >Image</span>
-                    <input required={true} type="file" className="w-full h-16 pb-2 pt-8 px-4 border-2 rounded-lg 
+                    <input required={true} type="file" className="w-full h-20 pb-2 pt-8 px-4 border-2 rounded-lg 
                     focus:border-blue-400 focus:outline-none"
                       onChange={(e)=>getImage(e)}/>
                 </div>

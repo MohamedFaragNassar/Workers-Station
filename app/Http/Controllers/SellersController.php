@@ -23,10 +23,7 @@ class SellersController extends Controller
 
     public function getone(Request $request)
     {
-        if (!$request->secure() && App::environment() === 'production') {
-            return redirect()->secure($request->getRequestUri());
-        }
-
+        
         $orders = Order::leftJoin("ratings","orders.id","=","ratings.order_id")
         ->where("orders.seller_id", $request["id"])
         ->select("orders.id","ratings.value")
@@ -58,25 +55,21 @@ class SellersController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'first_name' => ['required', 'string', 'max:50'],
-            'last_name' => ['required', 'string', 'max:50'],
-            'phone' => ['required', 'string', 'max:50'],
+            'first_name' => [ 'string', 'max:50'],
+            'last_name' => [ 'string', 'max:50'],
+            'phone' => [ 'string', 'max:50'],
             'location' => ['string', 'max:250'],
             'daily_start' => ['string', 'max:50'],
             'daily_end' => ['string', 'max:50'],
-            'email' => ['required','unique:clients',"email"],
+            'email' => ['unique:clients',"email"],
            ]);
         
+            $data = $request->only("first_name","last_name","email","phone","daily_start","daily_end");
+            $filterData = array_filter($data);
+           
             
            if(Auth::guard("seller")->user() && Auth::guard("seller")->user()["id"] == $request["id"] ){
-                $seller = Seller::where("id",$request->input("id"))->update([
-                    "first_name"=>$request->input("first_name"),
-                    "last_name"=>$request->input("last_name"),
-                    "email"=>$request->input("email"),
-                    "phone"=>$request->input("phone"),
-                    "daily_start"=>$request->input("daily_start"),
-                    "daily_end"=>$request->input("daily_end"),
-                ]);
+                $seller = Seller::where("id",$request->input("id"))->update($filterData);
                 $updatedSeller =  Seller::where("id",$request->input("id"))->first();
                 return response()->json(["seller" => $updatedSeller]);
            }

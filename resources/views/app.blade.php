@@ -12,11 +12,11 @@
     <title>Workers Station</title>
 
     <!-- styles -->
-    <link href="//workers-station.herokuapp.com/css/app.css" rel="stylesheet">
+    <link href="{{secure_asset('css/app.css') }}" type="text/css" rel="stylesheet">
 </head>
 <body>
     <div id="root"></div>
 
-    <script src="//workers-station.herokuapp.com/js/app.js"></script>
+    <script src="{{secure_asset('js/app.js') }}"></script>
 </body>
 </html>

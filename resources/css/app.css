@@ -25,6 +25,9 @@ li {
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background-color: #f8f7f7;
+}
 
 .center{
   top: 50%;
@@ -75,6 +78,14 @@ li {
 
 .anim {
   transition: all linear 0.5s;
+}
+
+button , a{
+  outline: none;
+}
+
+button:focus,a:focus{
+  outline: none;
 }
 
 @-webkit-keyframes spinner {

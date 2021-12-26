@@ -6,7 +6,7 @@ const ServiceCard = ({service}) => {
     return <>
         <div className="w-64 mt-5 border rounded-lg shadow-md bg-white  flex flex-col items-center justify-between" style={{height:450+"px"}} >
             <Link to={`/service/${service.id}/${service.service}`} className="font-semibold text-2xl mb-2 " >{service.service}</Link>
-            <img src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service.id}_${service.service}.jpg`} 
+            <img src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${service.id}_${service.service.replace(/\s/g, '')}`} 
             className="w-11/12 h-2/5 max-h-2/5 rounded-sm mx-auto"/>
             <div className="text-left p-2 max-h-24 ">{service.snippet}</div>
             <div className="flex justify-between items-center border-t-2 p-2 w-full">

@@ -17,6 +17,7 @@ const login = (email,password,type) => (dispatch)=>{
                try{
                 const {data} = await Axios.post("/api/sellerlogin",{email,password})
                 dispatch({type:USER_LOGIN_SUCCESS,payload:data.user})
+                localStorage.setItem("userdata",JSON.stringify(data.user))
                 localStorage.setItem("type",type)
                }catch(err){
                     if(err.message == "Request failed with status code 400"){
@@ -29,8 +30,8 @@ const login = (email,password,type) => (dispatch)=>{
                 try{
                     const {data} = await Axios.post("/api/clientlogin",{email,password})
                     dispatch({type:USER_LOGIN_SUCCESS,payload:data.user})
+                    localStorage.setItem("userdata",JSON.stringify(data.user))
                     localStorage.setItem("type",type)
-                    
                 }catch(err){
                     if(err.message == "Request failed with status code 400"){
                         dispatch({type:USER_LOGIN_FAIL,payload:"Invalid credentials"})
@@ -80,10 +81,10 @@ const getProfile = (id,type) => async(dispatch) =>{
     dispatch({type:USER_DETAILS_REQUEST})
     try{
         if(type=="client"){
-            const {data} = await Axios.post(`/api/client/`,{id})
+            const {data} = await Axios.post(`/api/client`,{id})
             dispatch({type:USER_DETAILS_SUCCESS,payload:data.client})
         }else if(type=="seller"){
-            const {data} = await Axios.post(`/api/seller/`,{id})
+            const {data} = await Axios.post(`/api/seller`,{id})
             dispatch({type:USER_DETAILS_SUCCESS,payload:data})
         }
         
@@ -97,16 +98,16 @@ const updateProfile = (first_name,last_name,email,phone,address,daily_start,dail
     try{
        
         if(type=="seller"){
-            const {data} = await Axios.post(`/api/updateseller/`,{id,first_name,last_name,email,
+            const {data} = await Axios.post(`/api/updateseller`,{id,first_name,last_name,email,
                                                                     phone,daily_start,daily_end})
             dispatch({type:UPDATE_PROFILE_SUCCESS,payload:data.seller})
             dispatch({type:USER_DETAILS_SUCCESS,payload:data.seller})
-            localStorage.setItem("userdata",JSON.stringify(data.seller))
+            
         }else if(type=="client"){
-            const {data} = await Axios.post(`/api/updateclient/`,{id,first_name,last_name,address,phone,email})
+            const {data} = await Axios.post(`/api/updateclient`,{id,first_name,last_name,address,phone,email})
             dispatch({type:UPDATE_PROFILE_SUCCESS,payload:data.client})
             dispatch({type:USER_DETAILS_SUCCESS,payload:data.client})
-            localStorage.setItem("userdata",JSON.stringify(data.client))
+            
         }
 
     }catch(err){

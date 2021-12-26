@@ -54,38 +54,39 @@ const Service = (props) => {
     }, [])
 
     return <>
-        {loading?<Spinner/>:error?<div className="w-full pt-16" ><Status/></div>:serving&&profile?
+    {loading?<div className='w-full mt-16'><Spinner/></div>
+        :error?<div className="w-full pt-16" ><Status/></div>:serving&&profile?
         <div className="w-full shadow-lg rounded-lg p-5 bg-white mt-16 change-height ">
             {addOrderLoading&& <Spinner/>}
             {addOrderError&&<Status message={addOrderError.message} status="fail" />}
             {addedOrder&&<Status message={"The order is sent successfully"}  status="success"/>}
-            <div className="text-xl font-bold mb-10" >{`${serving.offer.service} By ${profile.seller.first_name} ${profile.seller.last_name}`}</div>
+            <div className="text-xl font-bold mb-10" >{`${serving.offer.service} By ${profile?.seller.first_name} ${profile?.seller.last_name}`}</div>
             <div className="h-5/6 flex flex-col-reverse lg:flex-row items-center mt-6 lg:mt-0">
                 <div className=" w-full mt:4 lg:mt-0 border rounded-md lg:border-none p-2  md:w-3/4 lg:w-1/3 
                  h-full flex flex-col items-center">
                     <div className="flex flex-col items-center">
                         <img className="w-20 h-20 rounded-full" 
-                        src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/sellers/${profile.seller.id}.jpg`} />
+                        src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621061309/profiles/sellers/${profile?.seller.id}.jpg`} />
                         <Link to={`/seller/${id}`} className="text-xl font-semibold mt-2">
-                            {`${profile.seller.first_name} ${profile.seller.last_name}`}
+                            {`${profile?.seller.first_name} ${profile?.seller.last_name}`}
                         </Link>
                     </div>
                     <div className="w-full lg:w-2/3 mx-auto flex items-center flex-col mt-4 mb-8">
                         <div className="w-3/5 mt-8 flex items-center justify-between mx-auto text-xl" >
                             <i className="fas fa-compass"></i>
-                            <span className="w-10/12 text-left ml-2" >{profile.seller.location}</span>
+                            <span className="w-10/12 text-left ml-2" >{profile?.seller.location}</span>
                         </div>
                         <div className="w-3/5 mt-8 flex items-center justify-between mx-auto text-xl" >
                             <i className="fas fa-clock"></i>
-                            <span className="w-10/12 text-left" >{profile.seller.daily_start}</span>
+                            <span className="w-10/12 text-left" >{profile?.seller.daily_start}</span>
                         </div>
                         <div className="w-3/5 mt-8 flex items-center justify-between mx-auto text-xl" >
                             <i className="far fa-clock"></i>
-                            <span className="w-10/12 text-left" >{profile.seller.daily_end}</span>
+                            <span className="w-10/12 text-left" >{profile?.seller.daily_end}</span>
                         </div>
                         <div className="w-2/3 mx-auto flex items-center flex-col mt-8 mb-10">
                                 <Review value={getSellerRating()} color="yellow" size={30} />
-                                <span className="mt-3">{`( ${profile.rating[1]} Reviews )`}</span>
+                                <span className="mt-3">{`( ${profile?.rating[1]} Reviews )`}</span>
                         </div>
                     </div>
                 </div>
@@ -95,8 +96,9 @@ const Service = (props) => {
                             <span className="text-xl font-bold mb-2">Details :</span>
                             <div className="text-left text-base lg:text-lg">{serving.offer.details}</div>
                         </div>
-                        <img src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${id}_${service}.jpg`} 
-                        className="w-1/2 mx-auto h-80 rounded-lg hidden lg:block"/>
+                        <img className="w-1/2 mx-auto h-80 rounded-lg hidden lg:block"
+                        src={`https://res.cloudinary.com/dt3fknrkp/image/upload/v1621059929/services/${id}_${service.replace(/\s/g, '')}`}/> 
+                        
                    </div>
                    <div className="flex w-full flex-col lg:flex-row items-center justify-between  mt-4 lg:mt-0">
                             <div className="flex flex-col items-center lg:flex-row  lg:items-center">
@@ -128,8 +130,8 @@ const Service = (props) => {
                     </div>} */}
                 </div>
             </div>
-            {serving&&profile&&<AddOrder service={serving.offer} isOpen={isOpen} 
-            close={()=>setIsOpen(false)} seller={profile.seller} close={()=>setIsOpen(false)}/>}
+            {<AddOrder service={serving?.offer} isOpen={isOpen} 
+            close={()=>setIsOpen(false)} seller={profile?.seller} close={()=>setIsOpen(false)}/>}
         </div>:<div className="w-full mt-20 min-h-screen"><Status status="fail" message="Sorry This Service is not availabe now" /></div>}
     </>
 }

@@ -12,19 +12,11 @@ const AdminLogIn = () => {
     
     const {loading,error,adminData}  =  useSelector(state => state.admin)
     
-    console.log(adminData)
-    const history = useHistory()
-
     const handleLogin = (e)=>{
         e.preventDefault()
         dispatch(adminLogin(email,password))
     }
 
-    useEffect(() => {
-        if(adminData){
-            history.push("/admin/services")
-        }
-    }, [adminData])
     return <>
         <div className="fixed top-0 right-0 bottom-0 left-0 z-10 bg-white  " ></div>
         <form className="flex flex-col items-center justify-evenly w-5/6 md:w-2/3 lg:w-1/3 min
